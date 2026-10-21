@@ -107,7 +107,7 @@ test("server-renders the Contract Intelligence case study", async () => {
 
   const html = await response.text();
   assert.match(html, /From contract parsing to corpus-wide answers/);
-  assert.match(html, /1,100\+/);
+  assert.match(html, /4,000\+/);
   assert.match(html, /Amazon Bedrock Knowledge Bases/);
   assert.match(html, /OpenSearch Serverless/);
   assert.match(html, /Llama 3.1 8B/);

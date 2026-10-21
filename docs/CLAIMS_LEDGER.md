@@ -15,7 +15,7 @@ Update this file whenever a metric, scope, or attribution changes.
 | EU Light Jet margin moved from -8% to +17% | Public and approved | Present as a 25-point swing after instant booking returned in Q4. |
 | Loss-making EU Light Jet bookings moved from 55% to 20% | Public and approved | Pair with the margin result and invoice-based validation. |
 | Roughly $7M per quarter in incremental EU Light Jet margin | Public, directional estimate | Always qualify as directional and based on the fleet's revenue base. Do not present as an audited company-wide figure. |
-| Chamomile RAG searched 1,100+ contracts | Public and approved for the 2024 RAG phase | Keep distinct from any broader contract-parsing volume until the phase boundaries are confirmed. |
+| Chamomile RAG searched 4,000+ contracts | Public and approved | Use consistently for the searchable contract corpus. |
 | Cancellation policy intelligence covered 532 contracts | Public and approved | Keep the 84.7% badge-ready and 15.3% human-review split together when shown. |
 | 10% observed product lift became 4% incremental lift | Public and approved | Use to explain why causal measurement changed the product decision. |
 | Knowledge Café: 8 sessions for 60+ colleagues | Public and approved | Use as evidence of technical leadership, mentorship, and peer learning. |

@@ -22,7 +22,7 @@ move from experiments into production practice.
   production decision systems.
 - **EU Light Jet Pricing** — a cost-to-serve model with directly auditable
   margin outcomes.
-- **Chamomile Contract Intelligence** — clause-aware RAG across 1,100+ aviation
+- **Chamomile Contract Intelligence** — clause-aware RAG across 4,000+ aviation
   contracts using Amazon Bedrock Knowledge Bases, OpenSearch Serverless hybrid
   retrieval, and a SageMaker-hosted Llama 3.1 8B model.
 - **Cancellation Policy Intelligence** — confidence-aware model routing that

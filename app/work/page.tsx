@@ -14,7 +14,7 @@ const systems = [
     title: "Chamomile Contract Intelligence",
     summary:
       "A contract-parsing foundation extended into clause-aware hybrid retrieval and corpus-wide question answering for sales.",
-    evidence: ["1,100+ contracts", "Hybrid search", "Bedrock + OpenSearch"],
+    evidence: ["4,000+ contracts", "Hybrid search", "Bedrock + OpenSearch"],
     visual: "documents",
     href: "/work/contract-intelligence",
   },

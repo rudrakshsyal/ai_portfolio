@@ -48,7 +48,7 @@ export default function ContractIntelligencePage() {
         <dl className="ci-proof" aria-label="Chamomile project scale">
           <div>
             <dt>Contract corpus</dt>
-            <dd>1,100+</dd>
+            <dd>4,000+</dd>
           </div>
           <div>
             <dt>Retrieval strategy</dt>
@@ -176,7 +176,7 @@ export default function ContractIntelligencePage() {
           <li>
             <span>03</span>
             <small>2024 · RAG extension</small>
-            <strong>Search and answer across 1,100+ contracts</strong>
+            <strong>Search and answer across 4,000+ contracts</strong>
             <p>Clause-level hybrid retrieval made the accumulated contract corpus queryable through a region-level sales chatbot.</p>
           </li>
         </ol>

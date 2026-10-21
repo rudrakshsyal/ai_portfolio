@@ -61,7 +61,7 @@ const selectedWork = [
   {
     number: "01",
     title: "Chamomile Contract Intelligence",
-    copy: "Clause-aware hybrid retrieval that made a 1,100+ contract corpus queryable by regional sales teams.",
+    copy: "Clause-aware hybrid retrieval that made a 4,000+ contract corpus queryable by regional sales teams.",
     proof: "Bedrock · OpenSearch · Llama 3.1 8B",
     visual: "documents",
     href: "/work/contract-intelligence",

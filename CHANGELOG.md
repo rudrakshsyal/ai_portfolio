@@ -17,6 +17,8 @@ semantic versioning when a stable public milestone is tagged.
 
 ### Changed
 
+- Corrected the Chamomile searchable contract corpus to 4,000+ across the
+  homepage, Work index, detailed case study, and claims documentation.
 - Repository structure now separates public site source from private career
   notes, interview preparation, proprietary evidence, and future Career Studio
   data.
