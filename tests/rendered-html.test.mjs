@@ -378,3 +378,20 @@ test("keeps conflicting career figures out of site copy", async () => {
     }
   }
 });
+
+test("public résumé PDFs do not contain the phone number", async () => {
+  const files = [
+    "../public/resume.pdf",
+    "../public/resumes/agentic-ai-llm.pdf",
+    "../public/resumes/forward-deployed-engineer.pdf",
+    "../public/resumes/product-decision-science.pdf",
+  ];
+  for (const file of files) {
+    const bytes = await readFile(new URL(file, import.meta.url));
+    const text = bytes.toString("latin1");
+    assert.equal(text.includes("809-1518"), false, file);
+    assert.equal(text.includes("809‑1518"), false, file);
+    assert.equal(text.includes("(219)"), false, file);
+    assert.equal(text.includes("rudrakshsyal@gmail.com"), true, file);
+  }
+});

@@ -62,8 +62,8 @@ The contract résumé that includes work-authorization details is a private sour
 for facts only. Do not commit or publish that file. The site does not state
 visa status.
 
-Phone numbers stay inside the downloaded PDFs. The HTML contact paths are
-email, LinkedIn, and GitHub.
+The HTML contact paths are email, LinkedIn, and GitHub. The public résumé
+PDFs do not include a phone number.
 
 ## AI Digital Twin
 

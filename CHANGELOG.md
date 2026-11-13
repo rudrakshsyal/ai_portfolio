@@ -23,6 +23,9 @@ semantic versioning when a stable public milestone is tagged.
 
 ### Changed
 
+- Public résumé PDFs no longer include a phone number. Email and LinkedIn stay.
+  The contract résumé is still not in the repository.
+
 - Building now lists every public repository pushed since 12 June 2026,
   including NeetCode submissions and opportunity scoring. Four are featured.
   The rest are a compact list with a README line, stack tags, and the last push date.
