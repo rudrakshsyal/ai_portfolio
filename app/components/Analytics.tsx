@@ -2,15 +2,14 @@ import { ClickTracker } from "./ClickTracker";
 import { siteConfig } from "../../lib/site";
 
 /**
- * GoatCounter loads only when NEXT_PUBLIC_GOATCOUNTER_CODE is set at build time.
- * The script counts pageviews. ClickTracker sends résumé, email, LinkedIn, and
+ * GoatCounter is on when siteConfig.goatcounterCode is non-empty.
+ * The default code is rudrakshsyal. NEXT_PUBLIC_GOATCOUNTER_CODE overrides it;
+ * "off" disables the script. ClickTracker sends résumé, email, LinkedIn, and
  * GitHub clicks as events. The older provider block stays off unless
  * siteConfig.analytics.enabled is true.
  */
-const goatcounterCode = process.env.NEXT_PUBLIC_GOATCOUNTER_CODE?.trim() || "";
-
 export function Analytics() {
-  const { analytics } = siteConfig;
+  const { analytics, goatcounterCode } = siteConfig;
   const legacy =
     analytics.enabled && analytics.provider === "plausible" && analytics.plausible.domain && analytics.plausible.src ? (
       <script defer data-domain={analytics.plausible.domain} src={analytics.plausible.src} />

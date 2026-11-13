@@ -54,6 +54,8 @@ jobs:
             export NEXT_PUBLIC_SITE_URL="https://rudrakshsyal.github.io/ai_portfolio"
           fi
           if [ -n "${{ vars.GOATCOUNTER_CODE }}" ]; then
+            # Overrides the default code in lib/site.ts. Set the variable to
+            # "off" to publish Pages with no analytics script.
             export NEXT_PUBLIC_GOATCOUNTER_CODE="${{ vars.GOATCOUNTER_CODE }}"
           fi
           pnpm build

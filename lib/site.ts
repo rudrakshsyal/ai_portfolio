@@ -10,6 +10,17 @@ const defaultUrl = "https://rudraksh-syal-portfolio.glasnost.chatgpt.site";
 
 export const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
 
+/** Default GoatCounter site: https://rudrakshsyal.goatcounter.com/count */
+export const defaultGoatCounterCode = "rudrakshsyal";
+
+/** `undefined` keeps the default. Empty, "off", "false", or "0" disables it. */
+export function resolveGoatCounterCode(raw: string | undefined, fallback = defaultGoatCounterCode) {
+  if (raw === undefined) return fallback;
+  const value = raw.trim();
+  if (!value || /^(off|false|0)$/i.test(value)) return "";
+  return value;
+}
+
 export const siteConfig = {
   url: (process.env.NEXT_PUBLIC_SITE_URL || defaultUrl).replace(/\/$/, ""),
   name: "Rudraksh Syal",
@@ -25,9 +36,11 @@ export const siteConfig = {
     "https://github.com/rudrakshsyal",
   ],
   /**
-   * Optional extra analytics providers. Nothing is injected while `enabled`
-   * is false.
+   * GoatCounter is on by default. Set NEXT_PUBLIC_GOATCOUNTER_CODE to another
+   * site code to switch accounts, or to "off" to ship with no analytics script.
+   * The older providers below stay off unless `enabled` is true.
    */
+  goatcounterCode: resolveGoatCounterCode(process.env.NEXT_PUBLIC_GOATCOUNTER_CODE),
   analytics: {
     enabled: false,
     provider: "plausible" as "plausible" | "umami" | "cloudflare",

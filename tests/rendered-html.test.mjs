@@ -332,7 +332,9 @@ test("publishes canonical URL, social URL, icons, and Person JSON-LD", async () 
   assert.match(html, /"jobTitle":"Data Science Lead"/);
   assert.match(html, /https:\/\/linkedin\.com\/in\/rudraksh-syal/);
   assert.match(html, /https:\/\/github\.com\/rudrakshsyal/);
-  assert.doesNotMatch(html, /plausible\.io|cloudflareinsights|umami|gc\.zgo\.at|goatcounter/);
+  assert.match(html, /data-goatcounter="https:\/\/rudrakshsyal\.goatcounter\.com\/count"/);
+  assert.match(html, /src="https:\/\/gc\.zgo\.at\/count\.js"/);
+  assert.doesNotMatch(html, /plausible\.io|cloudflareinsights|umami/);
 
   const resume = await render("/resume");
   const resumeHtml = await resume.text();

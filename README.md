@@ -176,15 +176,24 @@ The HTML is in `dist/client`. Add `NEXT_PUBLIC_SITE_URL` and
 
 ## Analytics
 
-GoatCounter is off until you set `NEXT_PUBLIC_GOATCOUNTER_CODE` to the site
-code from your GoatCounter account (the subdomain in
-`https://<code>.goatcounter.com`). Rebuild and publish after setting it.
-Nothing is sent before that. The script is cookie-less. It counts pageviews,
-and clicks on a résumé PDF, email, LinkedIn, or GitHub are events.
+GoatCounter is on by default. The site code is `rudrakshsyal`
+(`https://rudrakshsyal.goatcounter.com/count`). The script is cookie-less. It
+counts pageviews, and clicks on a résumé PDF, email, LinkedIn, or GitHub are
+events.
 
-For ChatGPT Sites, set that variable in the hosting environment before
-publishing. For GitHub Pages, add it as a repository variable or secret named
-`GOATCOUNTER_CODE` (see the Pages workflow) and push `main` again.
+The code lives in `lib/site.ts` as `defaultGoatCounterCode`. A build can
+override it with `NEXT_PUBLIC_GOATCOUNTER_CODE`:
+
+- another code switches the GoatCounter site
+- `off` (or an empty value) ships the site with no analytics script
+
+ChatGPT Sites uses the default as soon as this revision is published, because
+the Sites build does not set the variable. To disable or change it there, set
+`NEXT_PUBLIC_GOATCOUNTER_CODE` in the hosting environment before publishing.
+
+GitHub Pages does the same. The repository variable `GOATCOUNTER_CODE` is
+optional. Set it only to use a different code, or set it to `off` to disable
+analytics on the next push to `main`.
 
 The older Plausible, Umami, and Cloudflare snippet stays off unless
 `siteConfig.analytics.enabled` is edited to `true`. GoatCounter is the
