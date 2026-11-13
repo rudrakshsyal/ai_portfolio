@@ -174,6 +174,22 @@ STATIC_EXPORT=1 pnpm build
 The HTML is in `dist/client`. Add `NEXT_PUBLIC_SITE_URL` and
 `NEXT_PUBLIC_BASE_PATH` when you want to preview the Pages URLs.
 
+## Analytics
+
+GoatCounter is off until you set `NEXT_PUBLIC_GOATCOUNTER_CODE` to the site
+code from your GoatCounter account (the subdomain in
+`https://<code>.goatcounter.com`). Rebuild and publish after setting it.
+Nothing is sent before that. The script is cookie-less. It counts pageviews,
+and clicks on a résumé PDF, email, LinkedIn, or GitHub are events.
+
+For ChatGPT Sites, set that variable in the hosting environment before
+publishing. For GitHub Pages, add it as a repository variable or secret named
+`GOATCOUNTER_CODE` (see the Pages workflow) and push `main` again.
+
+The older Plausible, Umami, and Cloudflare snippet stays off unless
+`siteConfig.analytics.enabled` is edited to `true`. GoatCounter is the
+supported path.
+
 ## Design principles
 
 1. **Evidence before adjectives.** A claim needs a result, a system behavior,

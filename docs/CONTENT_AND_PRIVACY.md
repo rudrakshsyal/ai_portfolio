@@ -62,8 +62,18 @@ The contract résumé that includes work-authorization details is a private sour
 for facts only. Do not commit or publish that file. The site does not state
 visa status.
 
-The HTML contact paths are email, LinkedIn, and GitHub. The public résumé
-PDFs do not include a phone number.
+Phone numbers are not on the site and not in the public résumé PDFs.
+The HTML contact paths are email, LinkedIn, and GitHub.
+
+## Analytics
+
+Page analytics use [GoatCounter](https://www.goatcounter.com/), which is
+open source and does not set cookies. The script is not in the page unless
+`NEXT_PUBLIC_GOATCOUNTER_CODE` is set at build time. When it is set, GoatCounter
+records pageviews, and clicks on a résumé PDF, an email link, LinkedIn, or
+GitHub are sent as events (`resume-download`, `outbound-email`,
+`outbound-linkedin`, `outbound-github`). No visitor conversations or analytics
+exports are stored in this repository.
 
 ## AI Digital Twin
 

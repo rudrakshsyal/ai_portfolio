@@ -28,6 +28,9 @@ semantic versioning when a stable public milestone is tagged.
 - The site can be built as a static export for GitHub Pages without changing
   the ChatGPT Sites worker build. The public URL is `NEXT_PUBLIC_SITE_URL`.
   A `CNAME` file is written only when the `PAGES_DOMAIN` variable is set.
+- GoatCounter loads only when `NEXT_PUBLIC_GOATCOUNTER_CODE` is set. It does
+  not use cookies. Pageviews are counted, and résumé, email, LinkedIn, and
+  GitHub clicks are events. The default build includes no analytics script.
 
 - Building now lists every public repository pushed since 12 June 2026,
   including NeetCode submissions and opportunity scoring. Four are featured.
