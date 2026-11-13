@@ -122,7 +122,7 @@ test("server-renders the Work library and patent treatment", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /Systems, models, and decisions/);
+  assert.match(html, /Work\./);
   assert.match(html, /Dynamic Pricing Engine/);
   assert.match(html, /Agentic pricing layer/);
   assert.match(html, /85–90% accepted/);
@@ -190,7 +190,7 @@ test("server-renders the career Journey", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /From making data visible to making systems dependable/);
+  assert.match(html, /Roles, recent first/);
   assert.match(html, /Hana E Solutions/);
   assert.match(html, /Oct 2026—Present/);
   assert.match(html, /May 2024—Jul 2026/);
@@ -199,7 +199,7 @@ test("server-renders the career Journey", async () => {
   assert.match(html, /Purdue University/);
   assert.match(html, /84\.51/);
   assert.match(html, /Vista/);
-  assert.match(html, /Still hands-on\. Increasingly a multiplier/);
+  assert.match(html, /Still hands-on\. Also a multiplier/);
   assert.doesNotMatch(html, /2021—Now/);
   assert.ok(html.indexOf("Hana E Solutions") < html.indexOf("Practo Technologies"));
 });
@@ -209,7 +209,9 @@ test("server-renders Building now", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /Public repositories from the last four months/);
+  assert.match(html, /Every public repository pushed since June 2026/);
+  assert.match(html, /neetcode-submissions/);
+  assert.match(html, /opportunities_scoring_analytics/);
   assert.match(html, /evidentML/);
   assert.match(html, /deep_research_agent/);
   assert.match(html, /ai-digital-twin/);
@@ -223,9 +225,25 @@ test("server-renders Building now", async () => {
   assert.match(html, /OpenAI Agents SDK/);
   assert.match(html, /Updated 26 Oct 2026/);
   assert.match(html, /Where I’m headed/);
-  assert.match(html, /Forward Deployed Engineer/);
-  assert.match(html, /not production claims/i);
   assert.match(html, /github\.com\/rudrakshsyal\/evidentML/);
+});
+
+test("server-renders Where I'm headed", async () => {
+  const response = await render("/future");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Agentic systems, with a person still in the loop/);
+  assert.match(html, /Staff \/ Principal Data Scientist/);
+  assert.match(html, /Forward Deployed Engineer/);
+  assert.match(html, /Next steps the READMEs already name/);
+  assert.match(html, /evidentML/);
+  assert.match(html, /the_sidekick_agent/);
+  assert.match(html, /dynamic_pricing_engine/);
+  assert.match(html, /Hana E Solutions/);
+  assert.match(html, /proof of concept/i);
+  const sitemap = await render("/sitemap.xml");
+  const xml = await sitemap.text();
+  assert.match(xml, /\/future/);
 });
 
 test("uses the light-only visual system and compact diagrams", async () => {
@@ -236,6 +254,7 @@ test("uses the light-only visual system and compact diagrams", async () => {
   ]);
 
   assert.match(css, /Replace mixed dark panels with light tonal surfaces/);
+  assert.doesNotMatch(css, /case-header nav a:not\(:last-child\)/);
   assert.match(css, /\.home-project-viz/);
   assert.match(home, /home-project-viz/);
   assert.match(work, /library-patent-flow/);
@@ -247,7 +266,8 @@ test("server-renders the visual About page", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /Technical depth\. Product judgment\. People leadership/);
+  assert.match(html, /Ask me about pricing, measurement, or agentic systems/);
+  assert.match(html, /linkedin\.com\/in\/rudraksh-syal/);
   assert.match(html, /Hands-on technical leader/);
   assert.match(html, /Forward Deployed Engineer/);
   assert.match(html, /11\+/);

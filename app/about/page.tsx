@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../components/CaseFooter";
 import { pageMetadata } from "../../lib/metadata";
 import { siteConfig, targetRoles } from "../../lib/site";
 
@@ -29,11 +30,10 @@ export default function AboutPage() {
 
       <section className="about-hero">
         <p className="case-chapter">About</p>
-        <h1>Technical depth. Product judgment. People leadership.</h1>
+        <h1>Hands-on lead. Still shipping.</h1>
         <p>
-          I’m a hands-on data science lead with 11+ years turning ambiguous
-          product and operational problems into measurement, pricing,
-          forecasting, and applied-AI systems people can use.
+          11+ years turning product and operating problems into measurement,
+          pricing, forecasting, and applied AI that people use.
         </p>
         <p className="availability-line about-availability">{siteConfig.availability}</p>
       </section>
@@ -41,7 +41,7 @@ export default function AboutPage() {
       <section className="about-triad" id="positioning" aria-labelledby="triad-title">
         <header>
           <p className="case-chapter">Positioning</p>
-          <h2 id="triad-title">The profile sits at the intersection.</h2>
+          <h2 id="triad-title">Three parts of the profile.</h2>
         </header>
         <div
           className="about-triad-map"
@@ -75,12 +75,8 @@ export default function AboutPage() {
       <section className="about-fit" aria-labelledby="fit-title">
         <div>
           <p className="case-chapter">Role fit</p>
-          <h2 id="fit-title">The roles I’m actively pursuing.</h2>
-          <p>
-            Staff and principal individual-contributor work, agentic engineering,
-            forward-deployed delivery, and a data science or AI tech-lead seat.
-            The common thread is implementation plus ownership of the decision.
-          </p>
+          <h2 id="fit-title">Roles I’m pursuing.</h2>
+          <p>Implementation plus ownership of the decision.</p>
         </div>
         <div className="about-role-grid">
           {targetRoles.map((role) => (
@@ -95,7 +91,7 @@ export default function AboutPage() {
       <section className="about-approach" id="approach" aria-labelledby="approach-title">
         <header>
           <p className="case-chapter">How I work</p>
-          <h2 id="approach-title">A repeatable path from ambiguity to operation.</h2>
+          <h2 id="approach-title">From ambiguity to operation.</h2>
         </header>
         <ol className="about-loop" aria-label="Working approach">
           <li>
@@ -129,7 +125,7 @@ export default function AboutPage() {
       <section className="about-proof" aria-labelledby="proof-title">
         <header>
           <p className="case-chapter">Evidence</p>
-          <h2 id="proof-title">A profile built across scales.</h2>
+          <h2 id="proof-title">Proof, at a glance.</h2>
         </header>
         <div className="about-proof-grid">
           <article>
@@ -162,7 +158,7 @@ export default function AboutPage() {
       <section className="about-foundations" aria-labelledby="foundations-title">
         <div>
           <p className="case-chapter">Foundations</p>
-          <h2 id="foundations-title">Formal rigor, practical bias.</h2>
+          <h2 id="foundations-title">Education and patent.</h2>
         </div>
         <ol>
           <li>
@@ -198,10 +194,7 @@ export default function AboutPage() {
         </nav>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/">← Back to portfolio</Link>
-        <Link href="/journey">View the journey →</Link>
-      </footer>
+      <CaseFooter backHref="/" backLabel="← Portfolio" nextHref="/journey" nextLabel="Journey →" />
     </main>
   );
 }

@@ -3072,10 +3072,27 @@ a:focus-visible {
   min-height: 150px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 12px 24px;
   font-size: 14px;
   font-weight: 600;
+}
+
+.case-footer-nav,
+.case-footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 22px;
+}
+
+.ask-line {
+  flex: 1 1 220px;
+  margin: 0;
+  color: var(--case-muted, #6e6e73);
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .case-footer a:last-child {
@@ -3084,15 +3101,17 @@ a:focus-visible {
 
 @media (max-width: 900px) {
   .case-header {
-    padding: 0 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    row-gap: 8px;
+    height: auto;
+    padding: 10px 16px 12px;
   }
 
   .case-header nav {
-    gap: 16px;
-  }
-
-  .case-header nav a:not(:last-child) {
-    display: none;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px 14px;
   }
 
   .case-hero {
@@ -6228,8 +6247,9 @@ a:focus-visible {
   font-weight: 400;
 }
 
-.footer-availability {
-  margin-top: 18px;
+.home-ask {
+  margin-top: 12px;
+  color: var(--muted);
 }
 
 .build-list,
@@ -6285,6 +6305,15 @@ a:focus-visible {
   font-size: 26px;
   font-weight: 600;
   letter-spacing: -0.03em;
+}
+
+.build-list article ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.build-list article li + li {
+  margin-top: 6px;
 }
 
 .build-list p,

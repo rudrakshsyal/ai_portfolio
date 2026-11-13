@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../../components/CaseFooter";
 import { pageMetadata } from "../../../lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -208,10 +209,7 @@ export default function AgenticPricingPage() {
         </div>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/work/dynamic-pricing-engine">← Dynamic Pricing Engine</Link>
-        <Link href="/work">All work →</Link>
-      </footer>
+      <CaseFooter backHref="/work/dynamic-pricing-engine" backLabel="← Dynamic Pricing Engine" nextHref="/work" nextLabel="All work →" />
     </main>
   );
 }

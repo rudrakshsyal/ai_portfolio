@@ -40,7 +40,8 @@ Target roles:
 | `/work/cancellation-policy-badging` | Cancellation badges for ~600 operators, ~85% badge-ready |
 | `/work/measurement-experimentation` | Experimentation and causal measurement |
 | `/journey` | Recent-first roles. Hana E Solutions is current. Vista ends July 2026 |
-| `/now` | Dated public GitHub repositories, plus where the work is headed |
+| `/now` | Every public GitHub repository pushed since 12 June 2026 |
+| `/future` | Target roles and the next steps already named in READMEs |
 | `/about` | Positioning, role fit, and contact |
 | `/resume` | Default résumé and three role-specific PDFs |
 

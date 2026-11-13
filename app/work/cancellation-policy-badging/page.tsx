@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../../components/CaseFooter";
 import { pageMetadata } from "../../../lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -39,11 +40,7 @@ export default function CancellationPolicyBadgingPage() {
         <div className="ci-hero-copy">
           <p className="case-chapter">03 · Cancellation Policy Intelligence</p>
           <h1>From cancellation clauses to customer-ready policy.</h1>
-          <p>
-            A separate production LLM workflow converted third-party operator
-            cancellation language into consistent flexibility tiers and refund
-            windows that customers could understand before booking.
-          </p>
+          <p>LLM extraction of operator refund terms into badges a customer can read before booking.</p>
         </div>
         <dl className="ci-proof" aria-label="Cancellation policy project scale">
           <div>
@@ -210,10 +207,7 @@ export default function CancellationPolicyBadgingPage() {
         </div>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/work/contract-intelligence">← Chamomile Contract Intelligence</Link>
-        <Link href="/work">All work →</Link>
-      </footer>
+      <CaseFooter backHref="/work/contract-intelligence" backLabel="← Chamomile" nextHref="/work" nextLabel="All work →" />
     </main>
   );
 }

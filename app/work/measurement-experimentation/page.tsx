@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../../components/CaseFooter";
 import { pageMetadata } from "../../../lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -36,11 +37,7 @@ export default function MeasurementExperimentationPage() {
       <section className="mx-hero">
         <p className="case-chapter">04 · Product Measurement &amp; Experimentation</p>
         <h1>Measure the change. Isolate what caused it. Decide what to do next.</h1>
-        <p>
-          A product-focused thread across experimentation, causal inference,
-          behavioral analytics, and self-serve measurement—from diagnosing
-          customer-journey drop-offs to giving merchandising leaders a go/no-go signal.
-        </p>
+        <p>Experimentation, causal measurement, and self-serve measurement. Endcaps: 10% observed, 4% incremental.</p>
         <dl className="mx-hero-proof">
           <div><dt>Observed endcap lift</dt><dd>10%</dd></div>
           <div><dt>True incremental lift</dt><dd>4%</dd></div>
@@ -177,10 +174,7 @@ export default function MeasurementExperimentationPage() {
         </div>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/work">← All work</Link>
-        <a href="mailto:rudrakshsyal@gmail.com">Discuss the work</a>
-      </footer>
+      <CaseFooter backHref="/work" backLabel="← All work" />
     </main>
   );
 }

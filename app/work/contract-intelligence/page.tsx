@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../../components/CaseFooter";
 import { pageMetadata } from "../../../lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -40,13 +41,7 @@ export default function ContractIntelligencePage() {
         <div className="ci-hero-copy">
           <p className="case-chapter">02 · Chamomile Contract Intelligence</p>
           <h1>From contract parsing to corpus-wide answers.</h1>
-          <p>
-            Chamomile began by turning difficult aviation contracts into
-            structured modules and Snowflake data. In 2024, I extended that
-            foundation into a RAG system so sales could ask natural-language
-            questions across the full contract corpus—not one uploaded document
-            at a time.
-          </p>
+          <p>Clause-aware retrieval so sales can question 4,000+ contracts, not one file at a time.</p>
         </div>
         <dl className="ci-proof" aria-label="Chamomile project scale">
           <div>
@@ -325,10 +320,7 @@ export default function ContractIntelligencePage() {
         </div>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/work">← All work</Link>
-        <Link href="/work/cancellation-policy-badging">Next: Cancellation Policy Badging →</Link>
-      </footer>
+      <CaseFooter backHref="/work" backLabel="← All work" nextHref="/work/cancellation-policy-badging" nextLabel="Cancellation badges →" />
     </main>
   );
 }

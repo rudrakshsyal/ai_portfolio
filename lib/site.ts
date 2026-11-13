@@ -54,6 +54,7 @@ export const publicRoutes = [
   "/work/measurement-experimentation",
   "/journey",
   "/now",
+  "/future",
   "/about",
   "/resume",
 ] as const;

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../components/CaseFooter";
 import { pageMetadata } from "../../lib/metadata";
 import { siteConfig } from "../../lib/site";
 
@@ -60,10 +61,8 @@ export default function ResumePage() {
       <section className="resume-hero">
         <p className="case-chapter">Resume</p>
         <h1>Download the résumé that matches the role.</h1>
-        <p>
-          {siteConfig.availability}. The default file is the technical-lead
-          résumé. The other three are role-specific variants of the same career.
-        </p>
+        <p className="availability-line about-availability">{siteConfig.availability}</p>
+        <p>Default file: technical-lead résumé. Three role variants are below.</p>
         <a className="download-resume resume-primary" href="/resume.pdf">
           Download resume
         </a>
@@ -80,10 +79,7 @@ export default function ResumePage() {
         ))}
       </section>
 
-      <footer className="case-footer">
-        <Link href="/">← Back to portfolio</Link>
-        <a href={`mailto:${siteConfig.email}`}>Email</a>
-      </footer>
+      <CaseFooter backHref="/" backLabel="← Portfolio" />
     </main>
   );
 }

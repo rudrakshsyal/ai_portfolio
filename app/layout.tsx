@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         url: socialImage,
         width: 1200,
         height: 630,
-        alt: "Rudraksh Syal, Data Science Lead. 11+ years, 7 U.S. regions, open to roles.",
+        alt: "Rudraksh Syal, Data Science Lead. Open to roles. Available now.",
       },
     ],
   },

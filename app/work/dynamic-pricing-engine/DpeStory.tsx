@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { CaseFooter } from "../../components/CaseFooter";
 
 type LabKey = "supply" | "demand" | "solver";
 type SolverKey = "base" | "peak" | "floor";
@@ -280,9 +281,7 @@ export default function DpeStory() {
         <p className="case-chapter">01 · Dynamic Pricing Engine</p>
         <h1>When capacity changes daily, price should too.</h1>
         <p className="case-lede">
-          A fleet-wide pricing system that estimates sellable capacity,
-          models price-sensitive booking behavior, and solves for a yield on
-          every departure date—including when the right answer is not to quote.
+          Sellable capacity, booking response, and a yield for each departure date.
         </p>
         <div className="case-hero-actions">
           <a href="#system">Explore the system ↓</a>
@@ -783,10 +782,7 @@ export default function DpeStory() {
         </p>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/">← Back to portfolio</Link>
-        <a href="mailto:rudrakshsyal@gmail.com">Discuss the work</a>
-      </footer>
+      <CaseFooter backHref="/" backLabel="← Portfolio" />
     </main>
   );
 }

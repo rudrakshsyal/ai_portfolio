@@ -174,6 +174,7 @@ export default function Home() {
           <Link href="/work">Work</Link>
           <Link href="/journey">Journey</Link>
           <Link href="/now">Building now</Link>
+          <Link href="/future">Where I’m headed</Link>
           <Link href="/about">About</Link>
           <Link href="/resume">Resume</Link>
         </nav>
@@ -185,9 +186,8 @@ export default function Home() {
           <h1 id="hero-title">Rudraksh Syal</h1>
           <p className="hero-title-line">Data Science Lead</p>
           <p className="hero-summary">
-            Technical lead for agentic AI and LLM systems, with 11+ years in
-            Python, machine learning, and data science. I ship pricing,
-            retrieval, and measurement systems that a person can check.
+            11+ years in Python, ML, and data science. I ship pricing, retrieval,
+            and agentic systems a person can check.
           </p>
           <ul className="role-chips" aria-label="Target roles">
             {targetRoles.map((role) => (
@@ -279,8 +279,8 @@ export default function Home() {
       <section className="section-block selected-work" id="work" aria-labelledby="work-title">
         <header className="section-heading">
           <p className="section-kicker">Selected work</p>
-          <h2 id="work-title">Systems a hiring manager can inspect.</h2>
-          <p>The live agentic layer, the contract corpus, and the policy badges. The full library holds pricing and measurement as well.</p>
+          <h2 id="work-title">Selected systems.</h2>
+          <p>Agentic pricing, contracts, and policy badges. Pricing and measurement are in the library.</p>
         </header>
         <div className="work-list">
           {selectedWork.map((project) => (
@@ -322,7 +322,7 @@ export default function Home() {
       <section className="section-block skills-section" id="skills" aria-labelledby="skills-title">
         <header className="section-heading compact-heading">
           <p className="section-kicker">Skills</p>
-          <h2 id="skills-title">The stack behind the systems.</h2>
+          <h2 id="skills-title">Stack.</h2>
         </header>
         <div className="skills-grid">
           {skillGroups.map((group) => (
@@ -341,7 +341,7 @@ export default function Home() {
       <section className="section-block journey-section" id="journey" aria-labelledby="journey-title">
         <header className="section-heading compact-heading">
           <p className="section-kicker">Journey</p>
-          <h2 id="journey-title">Recent first. Still hands-on.</h2>
+          <h2 id="journey-title">Recent roles.</h2>
         </header>
         <ol className="journey-line">
           {journey.map(([year, place, theme], index) => (
@@ -361,12 +361,8 @@ export default function Home() {
       <section className="section-block now-section" id="now" aria-labelledby="now-title">
         <div>
           <p className="section-kicker">Building now</p>
-          <h2 id="now-title">Public 2026 repositories, dated and linked.</h2>
-          <p>
-            Current employment is Data Science Lead at Hana E Solutions. Alongside
-            that, these public repositories are where agent orchestration,
-            evaluation, and interfaces are being built in the open.
-          </p>
+          <h2 id="now-title">Public repos.</h2>
+          <p>Every public repo pushed since June 2026. Current job is Data Science Lead at Hana E Solutions.</p>
           <div className="build-preview">
             {featuredBuilds.map((build) => (
               <a key={build.repo} href={build.href} target="_blank" rel="noreferrer">
@@ -378,6 +374,9 @@ export default function Home() {
           </div>
           <Link className="section-route-link align-left" href="/now">
             Open Building now →
+          </Link>
+          <Link className="section-route-link align-left" href="/future">
+            Where I’m headed →
           </Link>
         </div>
         <div className="multiplier-note">
@@ -399,6 +398,7 @@ export default function Home() {
           <div>
             <h2>Open to roles. Available now.</h2>
             <p className="availability-line footer-availability">{siteConfig.availability}</p>
+            <p className="ask-line home-ask">Ask me about pricing, measurement, or agentic systems.</p>
           </div>
         </div>
         <nav aria-label="Contact and profiles">

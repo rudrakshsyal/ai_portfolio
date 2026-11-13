@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../components/CaseFooter";
 import { pageMetadata } from "../../lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -94,12 +95,8 @@ export default function WorkPage() {
 
       <section className="library-hero">
         <p className="case-chapter">Work · 2015—Now</p>
-        <h1>Systems, models, and decisions.</h1>
-        <p>
-          Selected work across product measurement, experimentation, pricing,
-          machine learning, applied AI, causal inference, and optimization—organized
-          around the decisions it made possible.
-        </p>
+        <h1>Work.</h1>
+        <p>Pricing, measurement, retrieval, and applied AI. Each page is the decision the system supported.</p>
       </section>
 
       <section className="library-feature" aria-labelledby="feature-title">
@@ -135,7 +132,7 @@ export default function WorkPage() {
       <section className="library-section" id="systems" aria-labelledby="systems-title">
         <header>
           <p className="case-chapter">Selected systems</p>
-          <h2 id="systems-title">Different methods. The same standard: useful in practice.</h2>
+          <h2 id="systems-title">Useful in practice.</h2>
         </header>
         <div className="library-grid">
           {systems.map((system) => (
@@ -206,7 +203,7 @@ export default function WorkPage() {
       <section className="library-principles" aria-labelledby="principles-title">
         <p className="case-chapter">Across the portfolio</p>
         <div>
-          <h2 id="principles-title">The recurring pattern.</h2>
+          <h2 id="principles-title">The pattern.</h2>
           <ol>
             <li><span>01</span><strong>Start with the decision, not the model.</strong></li>
             <li><span>02</span><strong>Define how success will be measured before building.</strong></li>
@@ -216,10 +213,7 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/">← Back to portfolio</Link>
-        <a href="mailto:rudrakshsyal@gmail.com">Discuss the work</a>
-      </footer>
+      <CaseFooter backHref="/" backLabel="← Portfolio" />
     </main>
   );
 }
