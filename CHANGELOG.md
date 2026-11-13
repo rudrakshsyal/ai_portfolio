@@ -27,6 +27,7 @@ semantic versioning when a stable public milestone is tagged.
   Four are featured. The other four are a compact list with a README line,
   stack tags, and the last push date.
 - `/future` is the page for target roles and the README roadmap.
+- Shorter headlines and section intros on the homepage, journey, about, work library, and case-study openings.
 - Career length is 11+ years. Cancellation policy scale is ~600 operators and
   ~85% badge-ready. Regional scope is 7 U.S. regions. Chamomile remains
   4,000+ contracts.

@@ -144,11 +144,10 @@ export default function JourneyPage() {
 
       <section className="journey-hero">
         <p className="case-chapter">Journey · 2015—Present</p>
-        <h1>From making data visible to making systems dependable.</h1>
+        <h1>Roles, recent first.</h1>
         <p>
-          Recent roles come first. Vista ends in July 2026. My current role is
-          Data Science Lead at Hana E Solutions, starting October 2026. I am
-          also openly looking, and available now.
+          Vista ends July 2026. Data Science Lead at Hana E Solutions starts
+          October 2026. I am also available now.
         </p>
       </section>
 
@@ -198,12 +197,11 @@ export default function JourneyPage() {
       <section className="journey-leadership">
         <p className="case-chapter">The leadership transition</p>
         <div>
-          <h2>Still hands-on. Increasingly a multiplier.</h2>
+          <h2>Still hands-on. Also a multiplier.</h2>
           <p>
-            From May 2024 through July 2026 at Vista, the role included leading
-            two data scientists: technical direction, code and model review, and
-            architecture for pricing and agentic AI. Knowledge Café was the
-            cross-functional learning forum alongside that work.
+            May 2024–July 2026 at Vista: led two data scientists, reviewed code
+            and models, and owned pricing and agentic architecture. Knowledge
+            Café was eight sessions for 60+ colleagues.
           </p>
           <dl>
             <div>

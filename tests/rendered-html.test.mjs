@@ -122,7 +122,7 @@ test("server-renders the Work library and patent treatment", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /Systems, models, and decisions/);
+  assert.match(html, /Work\./);
   assert.match(html, /Dynamic Pricing Engine/);
   assert.match(html, /Agentic pricing layer/);
   assert.match(html, /85–90% accepted/);
@@ -190,7 +190,7 @@ test("server-renders the career Journey", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /From making data visible to making systems dependable/);
+  assert.match(html, /Roles, recent first/);
   assert.match(html, /Hana E Solutions/);
   assert.match(html, /Oct 2026—Present/);
   assert.match(html, /May 2024—Jul 2026/);
@@ -199,7 +199,7 @@ test("server-renders the career Journey", async () => {
   assert.match(html, /Purdue University/);
   assert.match(html, /84\.51/);
   assert.match(html, /Vista/);
-  assert.match(html, /Still hands-on\. Increasingly a multiplier/);
+  assert.match(html, /Still hands-on\. Also a multiplier/);
   assert.doesNotMatch(html, /2021—Now/);
   assert.ok(html.indexOf("Hana E Solutions") < html.indexOf("Practo Technologies"));
 });
@@ -263,7 +263,7 @@ test("server-renders the visual About page", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /Technical depth\. Product judgment\. People leadership/);
+  assert.match(html, /Hands-on lead\. Still shipping/);
   assert.match(html, /Hands-on technical leader/);
   assert.match(html, /Forward Deployed Engineer/);
   assert.match(html, /11\+/);

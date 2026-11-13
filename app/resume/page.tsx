@@ -60,10 +60,8 @@ export default function ResumePage() {
       <section className="resume-hero">
         <p className="case-chapter">Resume</p>
         <h1>Download the résumé that matches the role.</h1>
-        <p>
-          {siteConfig.availability}. The default file is the technical-lead
-          résumé. The other three are role-specific variants of the same career.
-        </p>
+        <p className="availability-line about-availability">{siteConfig.availability}</p>
+        <p>Default file: technical-lead résumé. Three role variants are below.</p>
         <a className="download-resume resume-primary" href="/resume.pdf">
           Download resume
         </a>
