@@ -74,6 +74,39 @@ the analytics switch. Canonical links, Open Graph, `robots.txt`, and
 
 ## Run and test locally
 
+### Technology and source map
+
+The application uses React 19, TypeScript, Next.js-compatible routes through
+Vinext/Vite, and a Cloudflare Worker runtime. pnpm is pinned in `package.json`.
+
+| Location | Purpose |
+| --- | --- |
+| `app/` | Public pages, shared components, metadata routes, and styling |
+| `lib/site.ts` | Site origin, availability, target roles, and analytics settings |
+| `lib/building-now.ts` | Curated public repository cards and last-push dates |
+| `public/` | Résumé PDFs, icons, and social preview image |
+| `worker/` | Request handling and static download routing |
+| `build/` | Sites integration used during packaging |
+| `tests/` | Rendered page, metadata, download, and claims checks |
+| `docs/` | Claims ledger, privacy policy, design decisions, and maintenance |
+
+Building now is a curated snapshot, not a live GitHub feed. Review its dates,
+descriptions, and featured flags during the weekly update. The digital-twin
+repository is listed, but an embedded chat is not yet implemented on this site.
+
+### Validation baseline — 13 November 2026
+
+Reviewed `main` at `a8e2877`. The production build and all 17 rendered-route
+tests pass. A local Worker exercise completed 600 requests at concurrency 25
+with zero failures, and checked 115 internal route/anchor references with no
+broken targets. These measurements exercise the application locally; they do
+not establish a hosted capacity or latency guarantee.
+
+The review preview is a separate Sites project. Its deployment manifest and
+origin are isolated from this repository's production project identity.
+
+### Commands
+
 Requirements: Node.js 22.13 or later, and pnpm.
 
 ```bash
