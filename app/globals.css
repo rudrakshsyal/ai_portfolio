@@ -3084,15 +3084,17 @@ a:focus-visible {
 
 @media (max-width: 900px) {
   .case-header {
-    padding: 0 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    row-gap: 8px;
+    height: auto;
+    padding: 10px 16px 12px;
   }
 
   .case-header nav {
-    gap: 16px;
-  }
-
-  .case-header nav a:not(:last-child) {
-    display: none;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px 14px;
   }
 
   .case-hero {

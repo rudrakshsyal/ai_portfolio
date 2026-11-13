@@ -252,6 +252,7 @@ test("uses the light-only visual system and compact diagrams", async () => {
   ]);
 
   assert.match(css, /Replace mixed dark panels with light tonal surfaces/);
+  assert.doesNotMatch(css, /case-header nav a:not\(:last-child\)/);
   assert.match(css, /\.home-project-viz/);
   assert.match(home, /home-project-viz/);
   assert.match(work, /library-patent-flow/);
