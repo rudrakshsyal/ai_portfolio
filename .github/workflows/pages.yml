@@ -1,0 +1,81 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11.25.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22.13.0
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build the static site
+        env:
+          PAGES_DOMAIN: ${{ vars.PAGES_DOMAIN }}
+        run: |
+          set -eu
+          export STATIC_EXPORT=1
+          if [ -n "${PAGES_DOMAIN}" ]; then
+            export NEXT_PUBLIC_BASE_PATH=""
+            export NEXT_PUBLIC_SITE_URL="https://${PAGES_DOMAIN}"
+          else
+            # Leave the base path empty. Vinext 0.0.50 prerenders "/" and
+            # returns 404 when next.config basePath is set, so a project-site
+            # prefix cannot be baked in yet. See the README.
+            export NEXT_PUBLIC_BASE_PATH=""
+            export NEXT_PUBLIC_SITE_URL="https://rudrakshsyal.github.io/ai_portfolio"
+          fi
+          if [ -n "${{ vars.GOATCOUNTER_CODE }}" ]; then
+            # Overrides the default code in lib/site.ts. Set the variable to
+            # "off" to publish Pages with no analytics script.
+            export NEXT_PUBLIC_GOATCOUNTER_CODE="${{ vars.GOATCOUNTER_CODE }}"
+          fi
+          pnpm build
+          node scripts/write-pages-metadata.mjs
+          if [ -n "${PAGES_DOMAIN}" ]; then
+            printf '%s\n' "${PAGES_DOMAIN}" > dist/client/CNAME
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/client
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

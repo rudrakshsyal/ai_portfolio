@@ -4,6 +4,8 @@ import { CaseFooter } from "../components/CaseFooter";
 import { featuredBuilds, formatUpdated, otherBuilds } from "../../lib/building-now";
 import { pageMetadata } from "../../lib/metadata";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = pageMetadata({
   title: "Building now · Rudraksh Syal",
   description:

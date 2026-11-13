@@ -68,9 +68,9 @@ Three sources, and nothing invented past them:
    Repository cards use that repo’s README for the description. A README that
    does not report a result is not given one.
 
-`lib/site.ts` holds the public site URL, availability line, target roles, and
-the analytics switch. Canonical links, Open Graph, `robots.txt`, and
-`sitemap.xml` all read that URL.
+`lib/site.ts` holds the public site URL, availability line, and target roles.
+Set `NEXT_PUBLIC_SITE_URL` to change the origin. Canonical links, Open Graph,
+`robots.txt`, and `sitemap.xml` all read that URL.
 
 ## Run and test locally
 
@@ -91,44 +91,113 @@ pnpm lint
 `pnpm test` builds the site and checks the rendered routes, résumé downloads,
 canonical URL, and that retired figures stay out of the copy.
 
-## Publish to ChatGPT Sites
+## Hosting
 
-Do this only after the pull request is reviewed and merged to `main`. Publish
+Two hosts can serve the same source. ChatGPT Sites stays the current live
+path. GitHub Pages is the open path, and a custom domain is a one-line change.
+
+The public origin is `NEXT_PUBLIC_SITE_URL`. When that variable is unset, the
+site uses `https://rudraksh-syal-portfolio.glasnost.chatgpt.site`. Canonical
+links, Open Graph, `robots.txt`, and `sitemap.xml` all read that one value
+through `lib/site.ts`.
+
+### ChatGPT Sites
+
+Do this only after a pull request is reviewed and merged to `main`. Publish
 that merged revision. Do not publish a side branch.
 
 1. Merge the reviewed pull request into `main`.
 2. Open the ChatGPT Sites project for this repo. The project id is in
    `.openai/hosting.json`. It is not a secret. Credentials stay in the hosting
    environment, not in git.
-3. In that project, publish the `main` revision manually. The live URL today
-   is `https://rudraksh-syal-portfolio.glasnost.chatgpt.site`.
-4. Check these URLs on the live host:
-   - `/`
-   - `/journey`
-   - `/now`
-   - `/resume` and `/resume.pdf`
-   - `/work/agentic-pricing`
-   - `/robots.txt` and `/sitemap.xml`
-5. Confirm the canonical link and `og:url` use the URL in `lib/site.ts`.
+3. In that project, publish the `main` revision manually.
+4. Check `/`, `/journey`, `/now`, `/future`, `/resume`, `/resume.pdf`,
+   `/work/agentic-pricing`, `/robots.txt`, and `/sitemap.xml`.
+5. Confirm the canonical link and `og:url` use the configured origin.
 
-Generated build output is not committed. The Sites project builds from the
-published source.
+The Sites build is `pnpm build` with `STATIC_EXPORT` unset. It produces the
+Cloudflare Worker in `dist/`. Generated output is not committed.
 
-### Custom domain, later
+### GitHub Pages
 
-Keep the glasnost URL until the domain actually answers. Then:
+A push to `main` runs `.github/workflows/pages.yml`. It builds a static export
+(`STATIC_EXPORT=1`) and deploys that folder with GitHub Actions. The Worker
+build is unchanged.
 
-1. In the same Sites project, add the custom domain and create the DNS records
-   the project shows. Wait until the project reports the domain as connected.
-2. Change only `siteConfig.url` in `lib/site.ts` to `https://` plus that
-   domain. If analytics is turned on, point its domain at the new host too.
-3. Merge that commit to `main` and publish the same revision.
-4. Re-check canonical, `og:url`, `robots.txt`, and `sitemap.xml`. They should
-   all use the new origin.
+Enable it once, in the GitHub repo:
 
-Analytics stays off until `siteConfig.analytics.enabled` is set to `true` and
-one provider (Plausible, Umami, or Cloudflare Web Analytics) is filled in.
-Republish after that change. See [Maintenance](docs/MAINTENANCE.md).
+1. Settings → Pages.
+2. Build and deployment → Source: **GitHub Actions**.
+
+Until a domain is set, the workflow publishes a static site whose canonical
+URL is `https://rudrakshsyal.github.io/ai_portfolio/`. It does **not** set
+`basePath`. Vinext 0.0.50’s static export asks the built server for `/` and
+gets a 404 when `basePath` is `/ai_portfolio`, so the export cannot be
+prefixed. Root-absolute links (`/assets/...`, `/work/`) therefore miss the
+project path. The homepage will not load its CSS on that project URL until
+one of these is true:
+
+- `PAGES_DOMAIN` is set and the domain answers at the site root, or
+- vinext’s prerender requests `` `${basePath}${path}` `` instead of `path`
+  (`node_modules/vinext/dist/build/prerender.js`, `renderUrl`). That is the
+  smallest code fix. This repo does not patch vinext.
+
+The ChatGPT Sites build does not use `basePath`, so it is unaffected.
+
+To attach a domain later, set the repository variable `PAGES_DOMAIN` to the
+apex, for example `rudrakshsyal.com`. The next push to `main` then:
+
+- sets `NEXT_PUBLIC_SITE_URL` to `https://rudrakshsyal.com`
+- clears the base path
+- writes `CNAME` into the Pages artifact only (it is not committed)
+
+DNS for GitHub Pages, after the domain is registered:
+
+| Host | Type | Value |
+| --- | --- | --- |
+| `@` (apex) | A | `185.199.108.153` |
+| `@` | A | `185.199.109.153` |
+| `@` | A | `185.199.110.153` |
+| `@` | A | `185.199.111.153` |
+| `www` | CNAME | `rudrakshsyal.github.io` |
+
+Use either the apex or `www` as `PAGES_DOMAIN`, not both. Point the other host
+at the one you chose if you want both names to answer. GitHub Pages will ask
+you to verify the domain in the Pages settings.
+
+Build the static site locally the same way:
+
+```bash
+STATIC_EXPORT=1 pnpm build
+```
+
+The HTML is in `dist/client`. Add `NEXT_PUBLIC_SITE_URL` and
+`NEXT_PUBLIC_BASE_PATH` when you want to preview the Pages URLs.
+
+## Analytics
+
+GoatCounter is on by default. The site code is `rudrakshsyal`
+(`https://rudrakshsyal.goatcounter.com/count`). The script is cookie-less. It
+counts pageviews, and clicks on a résumé PDF, email, LinkedIn, or GitHub are
+events.
+
+The code lives in `lib/site.ts` as `defaultGoatCounterCode`. A build can
+override it with `NEXT_PUBLIC_GOATCOUNTER_CODE`:
+
+- another code switches the GoatCounter site
+- `off` (or an empty value) ships the site with no analytics script
+
+ChatGPT Sites uses the default as soon as this revision is published, because
+the Sites build does not set the variable. To disable or change it there, set
+`NEXT_PUBLIC_GOATCOUNTER_CODE` in the hosting environment before publishing.
+
+GitHub Pages does the same. The repository variable `GOATCOUNTER_CODE` is
+optional. Set it only to use a different code, or set it to `off` to disable
+analytics on the next push to `main`.
+
+The older Plausible, Umami, and Cloudflare snippet stays off unless
+`siteConfig.analytics.enabled` is edited to `true`. GoatCounter is the
+supported path.
 
 ## Design principles
 

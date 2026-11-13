@@ -3,6 +3,8 @@ import Link from "next/link";
 import { CaseFooter } from "../../components/CaseFooter";
 import { pageMetadata } from "../../../lib/metadata";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = pageMetadata({
   title: "Cancellation Policy Intelligence · Rudraksh Syal",
   description:

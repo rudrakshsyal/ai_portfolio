@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "./components/Analytics";
 import { PersonJsonLd } from "./components/PersonJsonLd";
-import { siteConfig } from "../lib/site";
+import { absoluteUrl } from "../lib/site";
 import "./globals.css";
+
+export const dynamic = "force-static";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,17 +21,17 @@ const title = "Rudraksh Syal · Data Science Lead, Agentic AI & Applied ML";
 const description =
   "Rudraksh Syal is a data science lead with 11+ years across machine learning, pricing, measurement, and applied AI. Open to roles and available now in San Jose, CA or remote.";
 
-const socialImage = new URL("/og.png", siteConfig.url).toString();
+const socialImage = absoluteUrl("/og.png");
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(absoluteUrl("/")),
   title: {
     default: title,
     template: "%s",
   },
   description,
   alternates: {
-    canonical: siteConfig.url,
+    canonical: absoluteUrl("/"),
   },
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png" }],
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
     title,
     description,
     type: "website",
-    url: siteConfig.url,
+    url: absoluteUrl("/"),
     images: [
       {
         url: socialImage,

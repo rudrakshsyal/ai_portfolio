@@ -23,6 +23,16 @@ semantic versioning when a stable public milestone is tagged.
 
 ### Changed
 
+- Public résumé PDFs no longer include a phone number. Email and LinkedIn stay.
+  The contract résumé is still not in the repository.
+- The site can be built as a static export for GitHub Pages without changing
+  the ChatGPT Sites worker build. The public URL is `NEXT_PUBLIC_SITE_URL`.
+  A `CNAME` file is written only when the `PAGES_DOMAIN` variable is set.
+- GoatCounter is on by default for `rudrakshsyal.goatcounter.com`. Set
+  `NEXT_PUBLIC_GOATCOUNTER_CODE` to another code to switch sites, or to `off`
+  to publish with no analytics script. It does not use cookies. Pageviews are
+  counted, and résumé, email, LinkedIn, and GitHub clicks are events.
+
 - Building now lists every public repository pushed since 12 June 2026,
   including NeetCode submissions and opportunity scoring. Four are featured.
   The rest are a compact list with a README line, stack tags, and the last push date.

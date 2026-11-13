@@ -1,9 +1,28 @@
 /**
  * Public site origin. Canonical, Open Graph, robots, and sitemap all read
- * this value. When a custom domain is attached, change `url` and republish.
+ * `url`. Set NEXT_PUBLIC_SITE_URL to switch hosts (GitHub Pages or a custom
+ * domain). The ChatGPT Sites build leaves it unset and keeps the default.
+ *
+ * NEXT_PUBLIC_BASE_PATH is the path prefix for a GitHub project site
+ * (`/ai_portfolio`). Leave it empty for ChatGPT Sites and for a custom domain.
  */
+const defaultUrl = "https://rudraksh-syal-portfolio.glasnost.chatgpt.site";
+
+export const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
+
+/** Default GoatCounter site: https://rudrakshsyal.goatcounter.com/count */
+export const defaultGoatCounterCode = "rudrakshsyal";
+
+/** `undefined` keeps the default. Empty, "off", "false", or "0" disables it. */
+export function resolveGoatCounterCode(raw: string | undefined, fallback = defaultGoatCounterCode) {
+  if (raw === undefined) return fallback;
+  const value = raw.trim();
+  if (!value || /^(off|false|0)$/i.test(value)) return "";
+  return value;
+}
+
 export const siteConfig = {
-  url: "https://rudraksh-syal-portfolio.glasnost.chatgpt.site",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || defaultUrl).replace(/\/$/, ""),
   name: "Rudraksh Syal",
   jobTitle: "Data Science Lead",
   email: "rudrakshsyal@gmail.com",
@@ -17,9 +36,11 @@ export const siteConfig = {
     "https://github.com/rudrakshsyal",
   ],
   /**
-   * Privacy-friendly analytics. Nothing is injected while `enabled` is false.
-   * Set `enabled` to true and fill only the provider you use, then republish.
+   * GoatCounter is on by default. Set NEXT_PUBLIC_GOATCOUNTER_CODE to another
+   * site code to switch accounts, or to "off" to ship with no analytics script.
+   * The older providers below stay off unless `enabled` is true.
    */
+  goatcounterCode: resolveGoatCounterCode(process.env.NEXT_PUBLIC_GOATCOUNTER_CODE),
   analytics: {
     enabled: false,
     provider: "plausible" as "plausible" | "umami" | "cloudflare",
@@ -36,6 +57,19 @@ export const siteConfig = {
     },
   },
 } as const;
+
+/** Absolute URL that keeps a base path such as /ai_portfolio. */
+export function absoluteUrl(path = "/") {
+  const suffix = path.startsWith("/") ? path : `/${path}`;
+  if (suffix === "/") return siteConfig.url;
+  return `${siteConfig.url}${suffix}`;
+}
+
+/** Root-relative href with the Pages base path, if any. */
+export function sitePath(path: string) {
+  if (!path.startsWith("/")) return path;
+  return `${basePath}${path}`;
+}
 
 export const targetRoles = [
   "Staff / Principal Data Scientist",

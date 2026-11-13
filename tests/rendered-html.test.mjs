@@ -75,7 +75,7 @@ test("server-renders the Rudraksh Syal portfolio homepage", async () => {
 
 test("keeps the approved homepage scope and removes starter artifacts", async () => {
   const [page, layout, packageJson] = await Promise.all([
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/HomePage.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
@@ -85,7 +85,7 @@ test("keeps the approved homepage scope and removes starter artifacts", async ()
   assert.match(page, /hero-metrics/);
   assert.match(page, /Download resume/);
   assert.match(layout, /Data Science Lead, Agentic AI & Applied ML/);
-  assert.match(layout, /siteConfig\.url/);
+  assert.match(layout, /absoluteUrl\("\/"\)/);
   assert.doesNotMatch(page, /Career Studio/);
   assert.doesNotMatch(page, /evidence-ledger|pillar-row/);
   assert.doesNotMatch(page, /SkeletonPreview|react-loading-skeleton/);
@@ -249,7 +249,7 @@ test("server-renders Where I'm headed", async () => {
 test("uses the light-only visual system and compact diagrams", async () => {
   const [css, home, work] = await Promise.all([
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/HomePage.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/work/page.tsx", import.meta.url), "utf8"),
   ]);
 
@@ -332,6 +332,8 @@ test("publishes canonical URL, social URL, icons, and Person JSON-LD", async () 
   assert.match(html, /"jobTitle":"Data Science Lead"/);
   assert.match(html, /https:\/\/linkedin\.com\/in\/rudraksh-syal/);
   assert.match(html, /https:\/\/github\.com\/rudrakshsyal/);
+  assert.match(html, /data-goatcounter="https:\/\/rudrakshsyal\.goatcounter\.com\/count"/);
+  assert.match(html, /src="https:\/\/gc\.zgo\.at\/count\.js"/);
   assert.doesNotMatch(html, /plausible\.io|cloudflareinsights|umami/);
 
   const resume = await render("/resume");
@@ -376,5 +378,22 @@ test("keeps conflicting career figures out of site copy", async () => {
     for (const pattern of forbidden) {
       assert.doesNotMatch(source, pattern, `${file} matches ${pattern}`);
     }
+  }
+});
+
+test("public résumé PDFs do not contain the phone number", async () => {
+  const files = [
+    "../public/resume.pdf",
+    "../public/resumes/agentic-ai-llm.pdf",
+    "../public/resumes/forward-deployed-engineer.pdf",
+    "../public/resumes/product-decision-science.pdf",
+  ];
+  for (const file of files) {
+    const bytes = await readFile(new URL(file, import.meta.url));
+    const text = bytes.toString("latin1");
+    assert.equal(text.includes("809-1518"), false, file);
+    assert.equal(text.includes("809‑1518"), false, file);
+    assert.equal(text.includes("(219)"), false, file);
+    assert.equal(text.includes("rudrakshsyal@gmail.com"), true, file);
   }
 });

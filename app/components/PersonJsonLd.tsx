@@ -1,4 +1,4 @@
-import { siteConfig } from "../../lib/site";
+import { absoluteUrl, siteConfig } from "../../lib/site";
 
 export function PersonJsonLd() {
   const data = {
@@ -6,7 +6,7 @@ export function PersonJsonLd() {
     "@type": "Person",
     name: siteConfig.name,
     jobTitle: siteConfig.jobTitle,
-    url: siteConfig.url,
+    url: absoluteUrl("/"),
     email: siteConfig.email,
     address: {
       "@type": "PostalAddress",

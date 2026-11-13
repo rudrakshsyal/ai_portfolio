@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CaseFooter } from "../components/CaseFooter";
 import { pageMetadata } from "../../lib/metadata";
-import { siteConfig, targetRoles } from "../../lib/site";
+import { siteConfig, sitePath, targetRoles } from "../../lib/site";
+
+export const dynamic = "force-static";
 
 export const metadata: Metadata = pageMetadata({
   title: "About · Rudraksh Syal",
@@ -183,7 +185,7 @@ export default function AboutPage() {
         <p className="case-chapter">Contact</p>
         <h2 id="contact-title">{siteConfig.availability}</h2>
         <nav aria-label="Contact links">
-          <a href="/resume.pdf">Download resume →</a>
+          <a href={sitePath("/resume.pdf")}>Download resume →</a>
           <a href={`mailto:${siteConfig.email}`}>Email →</a>
           <a href={siteConfig.sameAs[0]} target="_blank" rel="noreferrer">
             LinkedIn ↗

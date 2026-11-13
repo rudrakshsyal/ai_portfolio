@@ -4,6 +4,8 @@ import { CaseFooter } from "../components/CaseFooter";
 import { pageMetadata } from "../../lib/metadata";
 import { siteConfig, targetRoles } from "../../lib/site";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = pageMetadata({
   title: "Where I’m headed · Rudraksh Syal",
   description:
