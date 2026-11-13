@@ -29,6 +29,7 @@ semantic versioning when a stable public milestone is tagged.
 - `/future` is the page for target roles and the README roadmap.
 - Shorter headlines and section intros on the homepage, journey, about, work library, and case-study openings.
 - Case-study navigation wraps on a phone instead of hiding every link but the last.
+- Draft GitHub profile README at `docs/github-profile-README.md`, for copying into `rudrakshsyal/rudrakshsyal`. It is not published to that profile from this repo.
 - Career length is 11+ years. Cancellation policy scale is ~600 operators and
   ~85% badge-ready. Regional scope is 7 U.S. regions. Chamomile remains
   4,000+ contracts.
