@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { publicBuilds } from "../../lib/building-now";
+import { featuredBuilds, formatUpdated, otherBuilds } from "../../lib/building-now";
 import { pageMetadata } from "../../lib/metadata";
 import { siteConfig, targetRoles } from "../../lib/site";
 
@@ -30,32 +30,54 @@ export default function NowPage() {
 
       <section className="now-hero">
         <p className="case-chapter">Building now · 2026</p>
-        <h1>Public repositories, with the dates they appeared.</h1>
+        <h1>Public repositories from the last four months.</h1>
         <p>
-          These are personal and public builds. They are not client deliverables
-          and not production claims. Each card uses only what that repository’s
-          README says.
+          Every public, non-fork repository with a push since 13 July 2026.
+          One line each, from that README. Not client work, and not production claims.
         </p>
       </section>
 
       <section className="build-list" id="builds" aria-labelledby="builds-title">
         <header>
           <p className="case-chapter">Repositories</p>
-          <h2 id="builds-title">Six public repos from 2026.</h2>
+          <h2 id="builds-title">Four to open first.</h2>
         </header>
         <div>
-          {publicBuilds.map((build) => (
+          {featuredBuilds.map((build) => (
             <article key={build.repo}>
               <div className="build-card-top">
-                <time>{build.date}</time>
+                <time dateTime={build.updated}>{`Updated ${formatUpdated(build.updated)}`}</time>
                 <code>{build.repo}</code>
               </div>
               <h3>{build.title}</h3>
               <p>{build.summary}</p>
+              <ul className="stack-tags" aria-label={`${build.title} stack`}>
+                {build.stack.map((tag) => (
+                  <li key={tag}>{tag}</li>
+                ))}
+              </ul>
               <a href={build.href} target="_blank" rel="noreferrer">
                 View on GitHub ↗
               </a>
             </article>
+          ))}
+        </div>
+        <div className="build-compact">
+          <h3>Also updated in this window</h3>
+          {otherBuilds.map((build) => (
+            <a key={build.repo} href={build.href} target="_blank" rel="noreferrer">
+              <time dateTime={build.updated}>{formatUpdated(build.updated)}</time>
+              <span>
+                <strong>{build.title}</strong>
+                <small>{build.repo}</small>
+                <p>{build.summary}</p>
+                <ul className="stack-tags" aria-label={`${build.title} stack`}>
+                  {build.stack.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              </span>
+            </a>
           ))}
         </div>
       </section>

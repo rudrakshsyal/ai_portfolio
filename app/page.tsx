@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { publicBuilds } from "../lib/building-now";
+import { featuredBuilds } from "../lib/building-now";
 import { siteConfig, targetRoles } from "../lib/site";
 
 type ScenarioKey = "base" | "peak" | "floor";
@@ -160,8 +160,6 @@ const proof = [
 export default function Home() {
   const [activeScenario, setActiveScenario] = useState<ScenarioKey>("base");
   const scenario = scenarios[activeScenario];
-  const featuredBuilds = publicBuilds.slice(0, 3);
-
   return (
     <main className="site-shell">
       <header className="site-header" aria-label="Primary navigation">
@@ -372,7 +370,7 @@ export default function Home() {
           <div className="build-preview">
             {featuredBuilds.map((build) => (
               <a key={build.repo} href={build.href} target="_blank" rel="noreferrer">
-                <time>{build.date}</time>
+                <time dateTime={build.updated}>{build.updated}</time>
                 <strong>{build.title}</strong>
                 <span>{build.repo}</span>
               </a>

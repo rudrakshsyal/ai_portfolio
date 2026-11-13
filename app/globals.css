@@ -6307,6 +6307,63 @@ a:focus-visible {
   font-weight: 650;
 }
 
+.stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stack-tags li {
+  border: 1px solid var(--case-line, #d2d2d7);
+  border-radius: 999px;
+  padding: 3px 8px;
+  color: var(--case-muted, #6e6e73);
+  font-size: 11px;
+}
+
+.build-compact {
+  margin-top: 36px;
+}
+
+.build-compact h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.build-compact > a {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--case-line, #d2d2d7);
+  color: inherit;
+  font-weight: 400;
+}
+
+.build-compact time {
+  color: var(--case-muted, #6e6e73);
+  font-size: 12px;
+}
+
+.build-compact strong {
+  display: block;
+  font-size: 16px;
+}
+
+.build-compact small {
+  color: var(--case-muted, #6e6e73);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+}
+
+.build-compact p {
+  margin: 6px 0 0;
+}
+
 .future-scope {
   padding-top: 10px;
 }
@@ -6354,7 +6411,8 @@ a:focus-visible {
   .skills-grid,
   .future-columns,
   .build-list > div,
-  .resume-variants {
+  .resume-variants,
+  .build-compact > a {
     grid-template-columns: 1fr;
   }
 

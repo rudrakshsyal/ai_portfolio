@@ -209,13 +209,19 @@ test("server-renders Building now", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /Public repositories, with the dates they appeared/);
+  assert.match(html, /Public repositories from the last four months/);
   assert.match(html, /evidentML/);
   assert.match(html, /deep_research_agent/);
   assert.match(html, /ai-digital-twin/);
   assert.match(html, /the_sidekick_agent/);
   assert.match(html, /grokbot_tv_launcher/);
   assert.match(html, /autonomous_trading_floor/);
+  assert.match(html, /dynamic_pricing_engine/);
+  assert.match(html, /ai_portfolio/);
+  assert.match(html, /Four to open first/);
+  assert.match(html, /Also updated in this window/);
+  assert.match(html, /OpenAI Agents SDK/);
+  assert.match(html, /Updated 26 Oct 2026/);
   assert.match(html, /Where I’m headed/);
   assert.match(html, /Forward Deployed Engineer/);
   assert.match(html, /not production claims/i);
