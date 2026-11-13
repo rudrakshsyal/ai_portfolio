@@ -26,6 +26,7 @@ semantic versioning when a stable public milestone is tagged.
 - Building now lists every public repository pushed since 12 June 2026,
   including NeetCode submissions and opportunity scoring. Four are featured.
   The rest are a compact list with a README line, stack tags, and the last push date.
+- Shared Open Graph image is a 28 KB card: name, Data Science Lead, and “Open to roles.”
 - `/future` is the page for target roles and the README roadmap.
 - Shorter headlines and section intros on the homepage, journey, about, work library, and case-study openings.
 - Case-study navigation wraps on a phone instead of hiding every link but the last.
