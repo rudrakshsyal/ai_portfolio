@@ -272,6 +272,7 @@ export default function DpeStory() {
           <a href="#evidence">Evidence</a>
           <a href="#research-extension">Research</a>
           <Link href="/work">All work</Link>
+          <Link href="/resume">Resume</Link>
         </nav>
       </header>
 

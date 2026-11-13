@@ -1,15 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "../../lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Work · Rudraksh Syal",
   description:
     "Selected product measurement, experimentation, data science, machine learning, pricing, and applied AI work by Rudraksh Syal.",
-};
+  path: "/work",
+});
 
 const systems = [
   {
     number: "02",
+    category: "Agentic AI · Tool calling",
+    title: "Agentic pricing layer",
+    summary:
+      "A custom Python LLM tool-calling layer on Claude via AWS Bedrock, run in parallel and then live, with a pricing manager approving every recommendation.",
+    evidence: ["7 U.S. regions", "~240 requests/day", "85–90% accepted"],
+    visual: "agent",
+    href: "/work/agentic-pricing",
+  },
+  {
+    number: "03",
     category: "Applied AI · RAG · Retrieval",
     title: "Chamomile Contract Intelligence",
     summary:
@@ -19,17 +31,17 @@ const systems = [
     href: "/work/contract-intelligence",
   },
   {
-    number: "03",
+    number: "04",
     category: "Applied AI · Product intelligence",
     title: "Cancellation Policy Intelligence",
     summary:
       "A confidence-routed extraction workflow that translated operator contract language into marketplace trust signals.",
-    evidence: ["532 operators", "84.7% badge-ready", "Haiku → Sonnet"],
+    evidence: ["~600 operators", "~85% badge-ready", "Human review"],
     visual: "documents",
     href: "/work/cancellation-policy-badging",
   },
   {
-    number: "04",
+    number: "05",
     category: "Pricing · Machine learning",
     title: "EU Light Jet Pricing",
     summary:
@@ -39,7 +51,7 @@ const systems = [
     href: "/work/dynamic-pricing-engine#eu-light-jet",
   },
   {
-    number: "05",
+    number: "06",
     category: "Product · Measurement · Experimentation",
     title: "Product Measurement",
     summary:
@@ -51,6 +63,9 @@ const systems = [
 ];
 
 function ProjectVisual({ type }: { type: string }) {
+  if (type === "agent") {
+    return <div className="library-project-viz documents" aria-label="Forecast and Snowflake tools produce an explanation a pricing manager approves"><span>Tools</span><i /><b>Explain</b><i /><strong>Approve</strong></div>;
+  }
   if (type === "documents") {
     return <div className="library-project-viz documents" aria-label="Documents flow through an LLM pipeline into structured product information"><span>PDFs</span><i /><i /><b>LLM</b><i /><strong>Structured data</strong></div>;
   }
@@ -71,7 +86,8 @@ export default function WorkPage() {
         <nav>
           <a href="#systems">Systems</a>
           <a href="#patent">Patent</a>
-          <Link href="/#journey">Journey</Link>
+          <Link href="/journey">Journey</Link>
+          <Link href="/resume">Resume</Link>
           <Link href="/">Home</Link>
         </nav>
       </header>
@@ -148,7 +164,7 @@ export default function WorkPage() {
 
       <section className="library-patent" id="patent" aria-labelledby="patent-title">
         <div className="library-patent-heading">
-          <p className="case-chapter">06 · Intellectual property</p>
+          <p className="case-chapter">07 · Intellectual property</p>
           <span>US 12,314,757 B1</span>
         </div>
         <div className="library-patent-main">

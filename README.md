@@ -1,7 +1,7 @@
 # Rudraksh Syal — AI Portfolio
 
 An evidence-led portfolio of data science, machine learning, product
-measurement, pricing, and applied AI systems built across more than a decade of
+measurement, pricing, and applied AI systems built across 11+ years of
 hands-on work.
 
 **Live portfolio:** [rudraksh-syal-portfolio.glasnost.chatgpt.site](https://rudraksh-syal-portfolio.glasnost.chatgpt.site)
@@ -22,15 +22,19 @@ move from experiments into production practice.
   production decision systems.
 - **EU Light Jet Pricing** — a cost-to-serve model with directly auditable
   margin outcomes.
+- **Agentic pricing layer** — a custom Python tool-calling layer on Claude via
+  AWS Bedrock, live across 7 U.S. regions at about 240 requests a day, with
+  85–90% of recommendations accepted by a pricing manager.
 - **Chamomile Contract Intelligence** — clause-aware RAG across 4,000+ aviation
   contracts using Amazon Bedrock Knowledge Bases, OpenSearch Serverless hybrid
   retrieval, and a SageMaker-hosted Llama 3.1 8B model.
 - **Cancellation Policy Intelligence** — confidence-aware model routing that
-  translated 532 operator policies into customer-readable marketplace signals.
+  translated refund terms for ~600 operators into customer-readable marketplace
+  signals, with about 85% badge-ready and uncertain cases held for review.
 - **Product Measurement** — experimentation, causal inference, and self-serve
   analytics supporting product and merchandising decisions.
-- **Journey, Now & Lab, and About** — the progression from analytics to
-  production ML and applied AI, plus current areas of inquiry.
+- **Journey, Building now, and About** — the progression from analytics to
+  production ML and applied AI, plus dated public repositories.
 
 ## Information architecture
 
@@ -44,6 +48,7 @@ Homepage
 
 Work
 ├── Dynamic Pricing Engine
+├── Agentic pricing layer
 ├── Chamomile Contract Intelligence
 ├── Cancellation Policy Intelligence
 ├── EU Light Jet Pricing
@@ -52,8 +57,9 @@ Work
 
 Supporting pages
 ├── Journey
-├── Now & Lab
-└── About
+├── Building now
+├── About
+└── Resume
 ```
 
 ## Design principles
