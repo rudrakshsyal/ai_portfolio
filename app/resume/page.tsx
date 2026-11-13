@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CaseFooter } from "../components/CaseFooter";
 import { pageMetadata } from "../../lib/metadata";
-import { siteConfig } from "../../lib/site";
+import { siteConfig, sitePath } from "../../lib/site";
+
+export const dynamic = "force-static";
 
 export const metadata: Metadata = pageMetadata({
   title: "Resume · Rudraksh Syal",
@@ -13,28 +15,28 @@ export const metadata: Metadata = pageMetadata({
 
 const variants = [
   {
-    href: "/resume.pdf",
+    href: sitePath("/resume.pdf"),
     label: "Default",
     title: "Technical Lead · Agentic AI & LLM Platforms",
     detail:
       "The résumé linked from the homepage. Team leadership, the live pricing layer, hybrid RAG over 4,000+ contracts, and production ML.",
   },
   {
-    href: "/resumes/agentic-ai-llm.pdf",
+    href: sitePath("/resumes/agentic-ai-llm.pdf"),
     label: "Agentic AI & LLM",
     title: "Data Science Lead · Agentic AI & LLM Systems",
     detail:
       "The same production systems, framed for agentic and LLM roles: tool calling, parallel-run adoption, RAG, and human review.",
   },
   {
-    href: "/resumes/forward-deployed-engineer.pdf",
+    href: sitePath("/resumes/forward-deployed-engineer.pdf"),
     label: "Forward deployed",
     title: "Forward Deployed Agentic AI & LLM Systems",
     detail:
       "Framed around shipping with pricing managers, revenue leaders, and executive stakeholders, from a parallel run through go-live.",
   },
   {
-    href: "/resumes/product-decision-science.pdf",
+    href: sitePath("/resumes/product-decision-science.pdf"),
     label: "Product & decision science",
     title: "Product & Decision Science",
     detail:
@@ -63,7 +65,7 @@ export default function ResumePage() {
         <h1>Download the résumé that matches the role.</h1>
         <p className="availability-line about-availability">{siteConfig.availability}</p>
         <p>Default file: technical-lead résumé. Three role variants are below.</p>
-        <a className="download-resume resume-primary" href="/resume.pdf">
+        <a className="download-resume resume-primary" href={sitePath("/resume.pdf")}>
           Download resume
         </a>
       </section>

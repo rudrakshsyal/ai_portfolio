@@ -25,6 +25,9 @@ semantic versioning when a stable public milestone is tagged.
 
 - Public résumé PDFs no longer include a phone number. Email and LinkedIn stay.
   The contract résumé is still not in the repository.
+- The site can be built as a static export for GitHub Pages without changing
+  the ChatGPT Sites worker build. The public URL is `NEXT_PUBLIC_SITE_URL`.
+  A `CNAME` file is written only when the `PAGES_DOMAIN` variable is set.
 
 - Building now lists every public repository pushed since 12 June 2026,
   including NeetCode submissions and opportunity scoring. Four are featured.

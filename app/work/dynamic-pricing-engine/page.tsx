@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { pageMetadata } from "../../../lib/metadata";
 import DpeStory from "./DpeStory";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = pageMetadata({
   title: "Dynamic Pricing Engine · Rudraksh Syal",
   description:

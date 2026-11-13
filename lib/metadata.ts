@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { siteConfig } from "./site";
+import { absoluteUrl } from "./site";
 
 export function pageMetadata({
   title,
@@ -10,7 +10,7 @@ export function pageMetadata({
   description: string;
   path: string;
 }): Metadata {
-  const url = new URL(path, siteConfig.url).toString();
+  const url = absoluteUrl(path);
 
   return {
     title,

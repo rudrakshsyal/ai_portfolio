@@ -75,7 +75,7 @@ test("server-renders the Rudraksh Syal portfolio homepage", async () => {
 
 test("keeps the approved homepage scope and removes starter artifacts", async () => {
   const [page, layout, packageJson] = await Promise.all([
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/HomePage.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
@@ -85,7 +85,7 @@ test("keeps the approved homepage scope and removes starter artifacts", async ()
   assert.match(page, /hero-metrics/);
   assert.match(page, /Download resume/);
   assert.match(layout, /Data Science Lead, Agentic AI & Applied ML/);
-  assert.match(layout, /siteConfig\.url/);
+  assert.match(layout, /absoluteUrl\("\/"\)/);
   assert.doesNotMatch(page, /Career Studio/);
   assert.doesNotMatch(page, /evidence-ledger|pillar-row/);
   assert.doesNotMatch(page, /SkeletonPreview|react-loading-skeleton/);
@@ -249,7 +249,7 @@ test("server-renders Where I'm headed", async () => {
 test("uses the light-only visual system and compact diagrams", async () => {
   const [css, home, work] = await Promise.all([
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/HomePage.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/work/page.tsx", import.meta.url), "utf8"),
   ]);
 
