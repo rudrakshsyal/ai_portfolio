@@ -223,9 +223,25 @@ test("server-renders Building now", async () => {
   assert.match(html, /OpenAI Agents SDK/);
   assert.match(html, /Updated 26 Oct 2026/);
   assert.match(html, /Where I’m headed/);
-  assert.match(html, /Forward Deployed Engineer/);
-  assert.match(html, /not production claims/i);
   assert.match(html, /github\.com\/rudrakshsyal\/evidentML/);
+});
+
+test("server-renders Where I'm headed", async () => {
+  const response = await render("/future");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Agentic systems, with a person still in the loop/);
+  assert.match(html, /Staff \/ Principal Data Scientist/);
+  assert.match(html, /Forward Deployed Engineer/);
+  assert.match(html, /Next steps the READMEs already name/);
+  assert.match(html, /evidentML/);
+  assert.match(html, /the_sidekick_agent/);
+  assert.match(html, /dynamic_pricing_engine/);
+  assert.match(html, /Hana E Solutions/);
+  assert.match(html, /proof of concept/i);
+  const sitemap = await render("/sitemap.xml");
+  const xml = await sitemap.text();
+  assert.match(xml, /\/future/);
 });
 
 test("uses the light-only visual system and compact diagrams", async () => {

@@ -6287,6 +6287,15 @@ a:focus-visible {
   letter-spacing: -0.03em;
 }
 
+.build-list article ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.build-list article li + li {
+  margin-top: 6px;
+}
+
 .build-list p,
 .future-scope > p,
 .future-columns p,

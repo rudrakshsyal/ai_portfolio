@@ -174,6 +174,7 @@ export default function Home() {
           <Link href="/work">Work</Link>
           <Link href="/journey">Journey</Link>
           <Link href="/now">Building now</Link>
+          <Link href="/future">Where I’m headed</Link>
           <Link href="/about">About</Link>
           <Link href="/resume">Resume</Link>
         </nav>
@@ -378,6 +379,9 @@ export default function Home() {
           </div>
           <Link className="section-route-link align-left" href="/now">
             Open Building now →
+          </Link>
+          <Link className="section-route-link align-left" href="/future">
+            Where I’m headed →
           </Link>
         </div>
         <div className="multiplier-note">
