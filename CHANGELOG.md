@@ -8,6 +8,9 @@ semantic versioning when a stable public milestone is tagged.
 
 ### Added
 
+- README sections for the purpose of the site, the page map, where copy is
+  sourced, local test commands, and the manual ChatGPT Sites publish path,
+  including the later custom-domain cutover.
 - Recruiter-first homepage: availability, target roles, 11+ years, proof
   metrics, and résumé / email / LinkedIn / GitHub actions.
 - Agentic pricing-layer case study and a `/resume` page with the default
