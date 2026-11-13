@@ -209,7 +209,9 @@ test("server-renders Building now", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /Public repositories from the last four months/);
+  assert.match(html, /Every public repository pushed since June 2026/);
+  assert.match(html, /neetcode-submissions/);
+  assert.match(html, /opportunities_scoring_analytics/);
   assert.match(html, /evidentML/);
   assert.match(html, /deep_research_agent/);
   assert.match(html, /ai-digital-twin/);

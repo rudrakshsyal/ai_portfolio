@@ -30,9 +30,9 @@ export default function NowPage() {
 
       <section className="now-hero">
         <p className="case-chapter">Building now · 2026</p>
-        <h1>Public repositories from the last four months.</h1>
+        <h1>Every public repository pushed since June 2026.</h1>
         <p>
-          Every public, non-fork repository with a push since 13 July 2026.
+          Ten public, non-fork repositories with a push since 12 June 2026.
           One line each, from that README. Not client work, and not production claims.
         </p>
       </section>

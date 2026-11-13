@@ -362,7 +362,7 @@ export default function Home() {
         <div>
           <p className="section-kicker">Building now</p>
           <h2 id="now-title">Public repos.</h2>
-          <p>Last four months on GitHub. Current job is Data Science Lead at Hana E Solutions.</p>
+          <p>Every public repo pushed since June 2026. Current job is Data Science Lead at Hana E Solutions.</p>
           <div className="build-preview">
             {featuredBuilds.map((build) => (
               <a key={build.repo} href={build.href} target="_blank" rel="noreferrer">

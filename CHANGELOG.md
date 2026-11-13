@@ -23,9 +23,9 @@ semantic versioning when a stable public milestone is tagged.
 
 ### Changed
 
-- Building now lists every public repository pushed since 13 July 2026.
-  Four are featured. The other four are a compact list with a README line,
-  stack tags, and the last push date.
+- Building now lists every public repository pushed since 12 June 2026,
+  including NeetCode submissions and opportunity scoring. Four are featured.
+  The rest are a compact list with a README line, stack tags, and the last push date.
 - `/future` is the page for target roles and the README roadmap.
 - Shorter headlines and section intros on the homepage, journey, about, work library, and case-study openings.
 - Case-study navigation wraps on a phone instead of hiding every link but the last.

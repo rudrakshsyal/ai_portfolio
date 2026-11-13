@@ -12,8 +12,8 @@ export type PublicBuild = {
 };
 
 /**
- * Public, non-fork repositories with a push on or after 13 July 2026
- * (about four months before 13 November 2026). Older repos are omitted.
+ * Every public, non-fork repository with a push on or after 12 June 2026.
+ * That is the full 2026 public set. Repos last pushed in 2019 or earlier are omitted.
  */
 export const publicBuilds: PublicBuild[] = [
   {
@@ -93,6 +93,26 @@ export const publicBuilds: PublicBuild[] = [
     summary:
       "The public portfolio between LinkedIn and GitHub: decisions, tradeoffs, evidence, and product outcomes.",
     stack: ["TypeScript", "React"],
+    featured: false,
+  },
+  {
+    updated: "2026-06-30",
+    repo: "neetcode-submissions",
+    href: "https://github.com/rudrakshsyal/neetcode-submissions",
+    title: "NeetCode submissions",
+    summary:
+      "NeetCode.io solutions synced into topic folders. The README does not list which problems were solved.",
+    stack: ["Python"],
+    featured: false,
+  },
+  {
+    updated: "2026-06-12",
+    repo: "opportunities_scoring_analytics",
+    href: "https://github.com/rudrakshsyal/opportunities_scoring_analytics",
+    title: "Opportunity scoring",
+    summary:
+      "Scoring intent-bound Salesforce opportunities to improve the lead conversion funnel.",
+    stack: ["Salesforce"],
     featured: false,
   },
 ];
