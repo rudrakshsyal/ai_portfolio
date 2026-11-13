@@ -75,3 +75,12 @@ scope more strongly than early-career chronology.
 The projects solve different product and technical problems. Chamomile is a
 corpus-scale retrieval system; cancellation badging is a structured extraction
 and confidence-routing system. Separate pages make both stories clearer.
+
+### ADR-004: Recruiter-first first screen
+
+**Status:** Accepted
+
+The homepage hero names Rudraksh, states Data Science Lead, 11+ years, the
+target roles, and availability before the flagship pricing instrument. Deeper
+case studies keep the evidence-led voice. The public origin used for canonical
+URLs, Open Graph, and the sitemap lives in `lib/site.ts`.

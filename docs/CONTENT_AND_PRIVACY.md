@@ -51,9 +51,19 @@ They should omit:
 
 ## Résumé and personal documents
 
-The repository may link to a public résumé, but source résumés and personal
-documents are not committed by default. A future public résumé artifact
-requires its own review.
+Four approved public résumé PDFs are served from this repository:
+
+- `/resume.pdf` — technical lead, agentic AI and LLM platforms (default download)
+- `/resumes/agentic-ai-llm.pdf`
+- `/resumes/forward-deployed-engineer.pdf`
+- `/resumes/product-decision-science.pdf`
+
+The contract résumé that includes work-authorization details is a private source
+for facts only. Do not commit or publish that file. The site does not state
+visa status.
+
+Phone numbers stay inside the downloaded PDFs. The HTML contact paths are
+email, LinkedIn, and GitHub.
 
 ## AI Digital Twin
 

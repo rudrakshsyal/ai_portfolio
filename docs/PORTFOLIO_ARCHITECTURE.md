@@ -20,22 +20,24 @@ evaluation, outcome, and personal contribution behind each project.
 The homepage establishes positioning and offers a small number of strong proof
 points. The Work library separates flagship case studies from supporting work.
 Case-study pages progressively disclose implementation and evaluation details.
-Journey is recent-first, while Now & Lab clearly distinguishes current learning
-from established production experience.
+Journey is recent-first. Building now lists dated public repositories and is
+separate from established production experience.
 
 ## Application structure
 
 | Route | Responsibility |
 | --- | --- |
-| `/` | Positioning, flagship system, selected work, journey, current interests |
+| `/` | Positioning, flagship system, selected work, skills, journey, building now |
 | `/work` | Work library, patent, and project navigation |
 | `/work/dynamic-pricing-engine` | DPE and EU Light Jet pricing case studies |
+| `/work/agentic-pricing` | LLM tool-calling pricing layer |
 | `/work/contract-intelligence` | Chamomile parsing and corpus-scale RAG |
 | `/work/cancellation-policy-badging` | Policy extraction, routing, and marketplace badging |
 | `/work/measurement-experimentation` | Experimentation and causal measurement |
 | `/journey` | Recent-first career timeline |
-| `/now` | Active learning, prototypes, and open questions |
+| `/now` | Dated public repositories and where the work is headed |
 | `/about` | Technical depth, product judgment, and leadership profile |
+| `/resume` | Default résumé and three role-specific variants |
 
 ## Content layers
 

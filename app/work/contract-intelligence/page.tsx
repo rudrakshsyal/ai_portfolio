@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "../../../lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Chamomile Contract Intelligence · Rudraksh Syal",
   description:
     "How Rudraksh Syal evolved Chamomile from contract parsing into a corpus-scale RAG system using Amazon Bedrock Knowledge Bases, OpenSearch Serverless hybrid search, and a SageMaker-hosted Llama endpoint.",
-};
+  path: "/work/contract-intelligence",
+});
 
 const ragSteps = [
   { number: "01", label: "Contracts", detail: "Batch upload" },
@@ -30,6 +32,7 @@ export default function ContractIntelligencePage() {
           <a href="#evaluation">Evaluation</a>
           <a href="#role">My role</a>
           <Link href="/work">All work</Link>
+          <Link href="/resume">Resume</Link>
         </nav>
       </header>
 

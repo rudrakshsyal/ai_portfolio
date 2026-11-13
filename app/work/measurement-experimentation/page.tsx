@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "../../../lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Product Measurement & Experimentation · Rudraksh Syal",
   description:
     "A product-focused case study spanning experimentation, causal measurement, self-serve analytics, and decision support.",
-};
+  path: "/work/measurement-experimentation",
+});
 
 const decisionLoop = [
   ["01", "Instrument", "Make the behavior visible."],
@@ -27,6 +29,7 @@ export default function MeasurementExperimentationPage() {
           <a href="#product">Product analytics</a>
           <a href="#approach">Approach</a>
           <Link href="/work">All work</Link>
+          <Link href="/resume">Resume</Link>
         </nav>
       </header>
 

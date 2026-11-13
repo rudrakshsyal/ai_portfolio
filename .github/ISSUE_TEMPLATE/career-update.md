@@ -30,7 +30,7 @@ Draft the shortest accurate version that can be published.
 - [ ] Work index
 - [ ] Case study
 - [ ] Journey
-- [ ] Now & Lab
+- [ ] Building now
 - [ ] About
 - [ ] Claims ledger
 - [ ] Changelog

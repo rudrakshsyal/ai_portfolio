@@ -59,9 +59,9 @@ a:focus-visible {
 .site-header {
   min-height: 76px;
   display: grid;
-  grid-template-columns: auto auto 1fr auto;
+  grid-template-columns: auto auto 1fr;
   align-items: center;
-  gap: 34px;
+  gap: 28px;
   border-bottom: 1px solid var(--ink);
   font-size: 14px;
 }
@@ -106,7 +106,7 @@ a:focus-visible {
 .primary-nav {
   justify-self: end;
   display: flex;
-  gap: 34px;
+  gap: 22px;
 }
 
 .primary-nav a,
@@ -134,15 +134,7 @@ a:focus-visible {
 }
 
 .studio-lock {
-  min-height: 38px;
-  padding: 0 16px;
-  border: 1px solid var(--ink);
-  background: transparent;
-  color: var(--ink);
-  font: inherit;
-  font-weight: 600;
-  opacity: 0.7;
-  cursor: not-allowed;
+  display: none;
 }
 
 .hero {
@@ -199,8 +191,8 @@ a:focus-visible {
 }
 
 .hero-copy {
-  min-height: 640px;
-  padding: 54px 46px 42px 0;
+  min-height: 0;
+  padding: 36px 40px 36px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -212,11 +204,11 @@ a:focus-visible {
 
 .hero h1 {
   max-width: 630px;
-  margin: 28px 0 22px;
+  margin: 14px 0 8px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(48px, 4vw, 64px);
+  font-size: clamp(46px, 4.4vw, 68px);
   font-weight: 400;
-  line-height: 1;
+  line-height: 0.96;
   letter-spacing: -0.04em;
 }
 
@@ -832,7 +824,7 @@ a:focus-visible {
 
 @media (max-width: 1220px) {
   .site-header {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr;
   }
 
   .header-note {
@@ -859,7 +851,7 @@ a:focus-visible {
   }
 
   .site-header {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
     padding: 16px 0;
   }
 
@@ -892,7 +884,7 @@ a:focus-visible {
 
   .hero-copy {
     min-height: auto;
-    padding: 72px 0 52px;
+    padding: 36px 0 28px;
   }
 
   .dpe-instrument {
@@ -6061,5 +6053,389 @@ a:focus-visible {
   .ci-role li {
     grid-template-columns: 82px 1fr;
     gap: 14px;
+  }
+}
+
+/* Recruiter scan, skills, building now, résumé */
+
+.availability-line {
+  margin: 0;
+  color: var(--teal);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-study .availability-line {
+  color: var(--case-green, #167d6c);
+}
+
+.hero-title-line {
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.role-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.role-chips li {
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.case-study .role-chips li {
+  border-color: var(--case-line, #d2d2d7);
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0 0;
+}
+
+.hero-metrics div {
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+}
+
+.hero-metrics dt {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.hero-metrics dd {
+  margin: 6px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.hero-actions {
+  flex-wrap: wrap;
+  gap: 14px 22px;
+}
+
+.download-resume {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 16px;
+  background: var(--ink);
+  color: #f7f4ed;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.download-resume:hover {
+  background: var(--cobalt);
+  color: #fff;
+}
+
+.home-project-viz.agent span,
+.home-project-viz.agent i {
+  font-style: normal;
+}
+
+.home-project-viz.agent span {
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: #eceef2;
+  color: #244fc7;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-project-viz.agent i {
+  width: 18px;
+  height: 1px;
+  background: #8b93a7;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.skills-grid article {
+  border-top: 1px solid var(--ink);
+  padding-top: 16px;
+}
+
+.skills-grid h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+.skills-grid ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills-grid li {
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.build-preview {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.build-preview a {
+  display: grid;
+  gap: 4px;
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.build-preview time,
+.build-preview span {
+  color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.build-preview strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.footer-availability {
+  margin-top: 18px;
+}
+
+.build-list,
+.future-scope,
+.resume-hero,
+.resume-variants {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  padding: 28px 30px 72px;
+}
+
+.build-list header h2,
+.future-scope h2,
+.resume-hero h1 {
+  margin: 12px 0 0;
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 620;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+.build-list > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.build-list article,
+.resume-variants article,
+.future-columns article {
+  padding: 22px;
+  background: var(--case-surface, #eceef1);
+  border-radius: 18px;
+}
+
+.build-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--case-muted, #6e6e73);
+  font-size: 12px;
+}
+
+.build-card-top code {
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.build-list h3,
+.future-columns h3,
+.resume-variants h2 {
+  margin: 14px 0 8px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.build-list p,
+.future-scope > p,
+.future-columns p,
+.resume-hero p,
+.resume-variants p {
+  margin: 0;
+  color: var(--case-muted, #6e6e73);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.build-list a,
+.resume-variants a {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--case-blue, #06c);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stack-tags li {
+  border: 1px solid var(--case-line, #d2d2d7);
+  border-radius: 999px;
+  padding: 3px 8px;
+  color: var(--case-muted, #6e6e73);
+  font-size: 11px;
+}
+
+.build-compact {
+  margin-top: 36px;
+}
+
+.build-compact h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.build-compact > a {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--case-line, #d2d2d7);
+  color: inherit;
+  font-weight: 400;
+}
+
+.build-compact time {
+  color: var(--case-muted, #6e6e73);
+  font-size: 12px;
+}
+
+.build-compact strong {
+  display: block;
+  font-size: 16px;
+}
+
+.build-compact small {
+  color: var(--case-muted, #6e6e73);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+}
+
+.build-compact p {
+  margin: 6px 0 0;
+}
+
+.future-scope {
+  padding-top: 10px;
+}
+
+.future-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.future-availability,
+.about-availability {
+  margin-top: 22px;
+}
+
+.resume-hero {
+  padding-top: 92px;
+}
+
+.resume-primary {
+  margin-top: 22px;
+  background: var(--case-ink, #1d1d1f);
+}
+
+.resume-variants {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding-top: 0;
+}
+
+.resume-variants span {
+  color: var(--case-blue, #06c);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.now-hero p,
+.resume-hero p {
+  max-width: 720px;
+}
+
+@media (max-width: 900px) {
+  .skills-grid,
+  .future-columns,
+  .build-list > div,
+  .resume-variants,
+  .build-compact > a {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-metrics dd {
+    font-size: 22px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-nav {
+    gap: 16px;
   }
 }

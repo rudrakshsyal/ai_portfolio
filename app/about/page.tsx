@@ -1,30 +1,28 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "../../lib/metadata";
+import { siteConfig, targetRoles } from "../../lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About · Rudraksh Syal",
   description:
-    "About Rudraksh Syal: a product-minded data science and ML leader working across measurement, experimentation, pricing, applied AI, and technical mentorship.",
-};
-
-const roleFits = [
-  ["DS / Product DS", "Senior · Staff · Principal"],
-  ["MLE", "Senior · Staff"],
-  ["AI Engineer", "Applied systems"],
-  ["FDE", "Technical + customer context"],
-];
+    "About Rudraksh Syal, Data Science Lead. 11+ years across measurement, pricing, and applied AI. Open to staff, principal, agentic, forward-deployed, and tech-lead roles.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
     <main className="case-study about-page">
       <header className="case-header" aria-label="About navigation">
         <Link className="case-brand" href="/" aria-label="Rudraksh Syal portfolio home">
-          <span>RS</span><strong>Rudraksh Syal</strong>
+          <span>RS</span>
+          <strong>Rudraksh Syal</strong>
         </Link>
         <nav>
           <a href="#positioning">Positioning</a>
           <a href="#approach">Approach</a>
           <Link href="/work">Work</Link>
+          <Link href="/resume">Resume</Link>
           <Link href="/">Home</Link>
         </nav>
       </header>
@@ -33,10 +31,11 @@ export default function AboutPage() {
         <p className="case-chapter">About</p>
         <h1>Technical depth. Product judgment. People leadership.</h1>
         <p>
-          I’m a hands-on data-science and ML leader with 10+ years of experience
-          turning ambiguous product and operational problems into measurement,
-          experimentation, pricing, forecasting, and applied-AI systems people can use.
+          I’m a hands-on data science lead with 11+ years turning ambiguous
+          product and operational problems into measurement, pricing,
+          forecasting, and applied-AI systems people can use.
         </p>
+        <p className="availability-line about-availability">{siteConfig.availability}</p>
       </section>
 
       <section className="about-triad" id="positioning" aria-labelledby="triad-title">
@@ -44,38 +43,52 @@ export default function AboutPage() {
           <p className="case-chapter">Positioning</p>
           <h2 id="triad-title">The profile sits at the intersection.</h2>
         </header>
-        <div className="about-triad-map" role="img" aria-label="Applied technical depth, cross-functional problem ownership, and technical leadership combine into hands-on technical leadership">
-          <div className="triad-node depth"><span>01</span><strong>Applied technical depth</strong><small>ML · experimentation · AI</small></div>
+        <div
+          className="about-triad-map"
+          role="img"
+          aria-label="Applied technical depth, cross-functional problem ownership, and technical leadership combine into hands-on technical leadership"
+        >
+          <div className="triad-node depth">
+            <span>01</span>
+            <strong>Applied technical depth</strong>
+            <small>ML · experimentation · AI</small>
+          </div>
           <i>+</i>
-          <div className="triad-node ownership"><span>02</span><strong>Problem ownership</strong><small>Product · ops · economics</small></div>
+          <div className="triad-node ownership">
+            <span>02</span>
+            <strong>Problem ownership</strong>
+            <small>Product · ops · economics</small>
+          </div>
           <i>+</i>
-          <div className="triad-node multiplier"><span>03</span><strong>Technical multiplier</strong><small>Mentorship · review · learning</small></div>
-          <div className="triad-result"><span>Result</span><strong>Hands-on technical leader</strong></div>
+          <div className="triad-node multiplier">
+            <span>03</span>
+            <strong>Technical multiplier</strong>
+            <small>Mentorship · review · learning</small>
+          </div>
+          <div className="triad-result">
+            <span>Result</span>
+            <strong>Hands-on technical leader</strong>
+          </div>
         </div>
       </section>
 
       <section className="about-fit" aria-labelledby="fit-title">
         <div>
           <p className="case-chapter">Role fit</p>
-          <h2 id="fit-title">Best where systems and decisions meet.</h2>
+          <h2 id="fit-title">The roles I’m actively pursuing.</h2>
           <p>
-            The strongest fit is a senior individual-contributor or technical-lead
-            role with meaningful implementation, broad problem ownership, and room
-            to raise the quality of the surrounding team.
+            Staff and principal individual-contributor work, agentic engineering,
+            forward-deployed delivery, and a data science or AI tech-lead seat.
+            The common thread is implementation plus ownership of the decision.
           </p>
         </div>
         <div className="about-role-grid">
-          {roleFits.map(([role, level]) => (
-            <article key={role}><strong>{role}</strong><span>{level}</span></article>
+          {targetRoles.map((role) => (
+            <article key={role}>
+              <strong>{role}</strong>
+              <span>Open · available now</span>
+            </article>
           ))}
-        </div>
-        <div className="about-role-map" role="img" aria-label="Preferred roles combine high hands-on depth with broad system ownership">
-          <span className="map-y-top">Technical leadership</span>
-          <span className="map-y-bottom">Individual execution</span>
-          <span className="map-x-left">Model</span>
-          <span className="map-x-right">System</span>
-          <i className="role-zone" />
-          <b>Best fit</b>
         </div>
       </section>
 
@@ -85,11 +98,31 @@ export default function AboutPage() {
           <h2 id="approach-title">A repeatable path from ambiguity to operation.</h2>
         </header>
         <ol className="about-loop" aria-label="Working approach">
-          <li><span>01</span><strong>Frame</strong><small>Define the behavior and decision.</small></li>
-          <li><span>02</span><strong>Measure</strong><small>Choose outcomes, baselines, and guardrails.</small></li>
-          <li><span>03</span><strong>Test / Model</strong><small>Use the right method for the question.</small></li>
-          <li><span>04</span><strong>Ship</strong><small>Connect evidence to real workflows.</small></li>
-          <li><span>05</span><strong>Learn</strong><small>Improve the next iteration.</small></li>
+          <li>
+            <span>01</span>
+            <strong>Frame</strong>
+            <small>Define the behavior and decision.</small>
+          </li>
+          <li>
+            <span>02</span>
+            <strong>Measure</strong>
+            <small>Choose outcomes, baselines, and guardrails.</small>
+          </li>
+          <li>
+            <span>03</span>
+            <strong>Test / Model</strong>
+            <small>Use the right method for the question.</small>
+          </li>
+          <li>
+            <span>04</span>
+            <strong>Ship</strong>
+            <small>Connect evidence to real workflows.</small>
+          </li>
+          <li>
+            <span>05</span>
+            <strong>Learn</strong>
+            <small>Improve the next iteration.</small>
+          </li>
         </ol>
       </section>
 
@@ -99,12 +132,30 @@ export default function AboutPage() {
           <h2 id="proof-title">A profile built across scales.</h2>
         </header>
         <div className="about-proof-grid">
-          <article><strong>10+</strong><span>years across DS and ML</span></article>
-          <article><strong>2,100+</strong><span>aircraft network</span></article>
-          <article><strong>2</strong><span>production LLM pipelines</span></article>
-          <article><strong>2+ yrs</strong><span>technical mentorship</span></article>
-          <article><strong>10% → 4%</strong><span>observed to incremental lift</span></article>
-          <article><strong>1</strong><span>US patent as co-inventor</span></article>
+          <article>
+            <strong>11+</strong>
+            <span>years across DS and ML</span>
+          </article>
+          <article>
+            <strong>7</strong>
+            <span>U.S. regions in the pricing layer</span>
+          </article>
+          <article>
+            <strong>~600</strong>
+            <span>operators, ~85% badge-ready</span>
+          </article>
+          <article>
+            <strong>4,000+</strong>
+            <span>contracts in hybrid RAG</span>
+          </article>
+          <article>
+            <strong>2</strong>
+            <span>data scientists led, 2024–2026</span>
+          </article>
+          <article>
+            <strong>1</strong>
+            <span>US patent as co-inventor</span>
+          </article>
         </div>
       </section>
 
@@ -114,19 +165,36 @@ export default function AboutPage() {
           <h2 id="foundations-title">Formal rigor, practical bias.</h2>
         </div>
         <ol>
-          <li><time>2019</time><strong>Purdue University</strong><span>MS · Business Analytics &amp; Data Science</span></li>
-          <li><time>2015</time><strong>BITS Pilani</strong><span>BE (Hons.) · MSc Applied Mathematics</span></li>
-          <li><time>2025</time><strong>US 12,314,757 B1</strong><span>Named co-inventor · Adaptive resource scheduling</span></li>
+          <li>
+            <time>2019</time>
+            <strong>Purdue University</strong>
+            <span>M.S. · Business Analytics &amp; Data Science</span>
+          </li>
+          <li>
+            <time>2015</time>
+            <strong>BITS Pilani</strong>
+            <span>B.E. (Hons.) · M.Sc. Applied Mathematics</span>
+          </li>
+          <li>
+            <time>2025</time>
+            <strong>US 12,314,757 B1</strong>
+            <span>Named co-inventor · Adaptive resource scheduling</span>
+          </li>
         </ol>
       </section>
 
       <section className="about-contact" aria-labelledby="contact-title">
         <p className="case-chapter">Contact</p>
-        <h2 id="contact-title">Interested in difficult systems and the decisions behind them.</h2>
+        <h2 id="contact-title">{siteConfig.availability}</h2>
         <nav aria-label="Contact links">
-          <a href="mailto:rudrakshsyal@gmail.com">Email →</a>
-          <a href="https://www.linkedin.com/in/rudraksh-syal/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href="https://github.com/rudrakshsyal/" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="/resume.pdf">Download resume →</a>
+          <a href={`mailto:${siteConfig.email}`}>Email →</a>
+          <a href={siteConfig.sameAs[0]} target="_blank" rel="noreferrer">
+            LinkedIn ↗
+          </a>
+          <a href={siteConfig.sameAs[1]} target="_blank" rel="noreferrer">
+            GitHub ↗
+          </a>
         </nav>
       </section>
 

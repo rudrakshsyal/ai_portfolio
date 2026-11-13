@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "../../../lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Cancellation Policy Intelligence · Rudraksh Syal",
   description:
-    "A production LLM workflow that converted 532 third-party operator cancellation policies into customer-readable marketplace trust signals.",
-};
+    "A production LLM workflow that converted refund terms for about 600 operators into customer-readable marketplace trust signals. About 85% were badge-ready automatically.",
+  path: "/work/cancellation-policy-badging",
+});
 
 const policySteps = [
-  { number: "01", label: "Contracts", detail: "532 operators" },
+  { number: "01", label: "Contracts", detail: "~600 operators" },
   { number: "02", label: "Extract", detail: "Policy language" },
   { number: "03", label: "Route", detail: "Haiku → Sonnet" },
   { number: "04", label: "Validate", detail: "Human fallback" },
@@ -29,6 +31,7 @@ export default function CancellationPolicyBadgingPage() {
           <a href="#evaluation">Evaluation</a>
           <a href="#role">My role</a>
           <Link href="/work">All work</Link>
+          <Link href="/resume">Resume</Link>
         </nav>
       </header>
 
@@ -44,16 +47,16 @@ export default function CancellationPolicyBadgingPage() {
         </div>
         <dl className="ci-proof" aria-label="Cancellation policy project scale">
           <div>
-            <dt>Operator contracts</dt>
-            <dd>532</dd>
+            <dt>Operators</dt>
+            <dd>~600</dd>
           </div>
           <div>
             <dt>Badge-ready automatically</dt>
-            <dd>84.7%</dd>
+            <dd>~85%</dd>
           </div>
           <div>
-            <dt>Human review</dt>
-            <dd>15.3%</dd>
+            <dt>Uncertain cases</dt>
+            <dd>Human review</dd>
           </div>
         </dl>
       </section>
@@ -110,7 +113,7 @@ export default function CancellationPolicyBadgingPage() {
                 <span />
                 <span />
                 <span />
-                <b>532 operators</b>
+                <b>~600 operators</b>
               </div>
               <i>→</i>
               <div className="ci-badges">
@@ -165,7 +168,7 @@ export default function CancellationPolicyBadgingPage() {
           <article>
             <span>03</span>
             <strong>Defer</strong>
-            <p>The remaining 15.3% primarily reflected unclear source language; human review was the appropriate fallback.</p>
+            <p>Cases that were not badge-ready went to manual review instead of being shown as confident policy.</p>
           </article>
         </div>
       </section>

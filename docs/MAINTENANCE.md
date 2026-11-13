@@ -58,6 +58,18 @@ commit. Suggested milestones:
 - public AI Digital Twin beta;
 - significant role or career transition.
 
+## Site URL, résumé files, and analytics
+
+`lib/site.ts` is the only public origin. Canonical URLs, Open Graph, robots,
+and the sitemap read `siteConfig.url`. Change that value when a custom domain
+is attached, then republish the same revision.
+
+Analytics is off unless `siteConfig.analytics.enabled` is true. The supported
+snippets are Plausible, Umami, and Cloudflare Web Analytics. Leave it false
+until a property exists. The default build injects no analytics script.
+
+Do not commit the contract résumé that contains work-authorization details.
+
 ## Annual review
 
 Once per year:

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { featuredBuilds } from "../lib/building-now";
+import { siteConfig, targetRoles } from "../lib/site";
 
 type ScenarioKey = "base" | "peak" | "floor";
 
@@ -60,6 +62,14 @@ const scenarios: Record<
 const selectedWork = [
   {
     number: "01",
+    title: "Agentic pricing layer",
+    copy: "A custom Python tool-calling layer on Claude via AWS Bedrock. It explains pricing drivers, and a manager approves or rejects each recommendation.",
+    proof: "7 regions · ~240 requests/day · 85–90% accepted",
+    visual: "agent",
+    href: "/work/agentic-pricing",
+  },
+  {
+    number: "02",
     title: "Chamomile Contract Intelligence",
     copy: "Clause-aware hybrid retrieval that made a 4,000+ contract corpus queryable by regional sales teams.",
     proof: "Bedrock · OpenSearch · Llama 3.1 8B",
@@ -67,86 +77,144 @@ const selectedWork = [
     href: "/work/contract-intelligence",
   },
   {
-    number: "02",
-    title: "EU Light Jet Pricing",
-    copy: "A deployed pricing model that reversed loss-making economics while improving the quality of instant-booking decisions.",
-    proof: "−8% → +17% margin",
-    visual: "margin",
-    href: "/work/dynamic-pricing-engine#eu-light-jet",
-  },
-  {
     number: "03",
-    title: "Product Measurement",
-    copy: "Experimentation, causal inference, and self-serve analytics for customer journeys and merchandising decisions.",
-    proof: "10% observed → 4% incremental",
-    visual: "causal",
-    href: "/work/measurement-experimentation",
+    title: "Cancellation policy badges",
+    copy: "Structured refund terms for ~600 operators into marketplace badges, with uncertain cases held for human review.",
+    proof: "~600 operators · ~85% badge-ready",
+    visual: "documents",
+    href: "/work/cancellation-policy-badging",
   },
 ];
 
 const journey = [
-  ["2015", "Practo", "Making data usable"],
-  ["2019", "Purdue", "Deepening foundations"],
-  ["2019", "84.51°", "Decision science at scale"],
+  ["2026", "Hana E Solutions", "Agentic AI, from scratch"],
+  ["2024", "Vista · DS Lead", "Pricing systems & agentic AI"],
   ["2021", "Vista", "Production pricing & ML"],
-  ["Now", "Applied AI", "Reliable intelligent systems"],
+  ["2019", "84.51°", "Decision science at scale"],
+  ["2015", "Practo", "Making data usable"],
+];
+
+const skillGroups = [
+  {
+    title: "Agentic AI & LLMs",
+    items: [
+      "Tool / function calling",
+      "Multi-step orchestration",
+      "RAG & hybrid search",
+      "Claude on AWS Bedrock",
+      "LangChain / LangGraph",
+      "OpenAI Agents SDK",
+      "MCP",
+      "Llama 3.1 8B",
+    ],
+  },
+  {
+    title: "Evaluation",
+    items: [
+      "LLM-as-a-judge",
+      "Golden sets",
+      "Precision@K / Recall@K",
+      "Human-in-the-loop review",
+      "Guardrails",
+      "LangSmith",
+      "Parallel-run validation",
+    ],
+  },
+  {
+    title: "Cloud, data & platform",
+    items: [
+      "Python",
+      "SQL",
+      "AWS Bedrock",
+      "SageMaker",
+      "OpenSearch Serverless",
+      "Snowflake",
+      "Databricks",
+      "Spark",
+      "MLflow",
+      "Airflow",
+      "Docker",
+      "Kubernetes",
+    ],
+  },
+  {
+    title: "ML & statistics",
+    items: [
+      "XGBoost",
+      "Random Forest",
+      "Forecasting",
+      "Optimization",
+      "BSTS & synthetic control",
+      "A/B testing",
+      "NLP",
+    ],
+  },
+];
+
+const proof = [
+  { value: "11+ years", label: "Python, ML, and data science" },
+  { value: "7 U.S. regions", label: "Pricing layer live after a parallel run" },
+  { value: "~600 operators", label: "~85% badge-ready, rest reviewed" },
 ];
 
 export default function Home() {
   const [activeScenario, setActiveScenario] = useState<ScenarioKey>("base");
   const scenario = scenarios[activeScenario];
-
   return (
     <main className="site-shell">
       <header className="site-header" aria-label="Primary navigation">
-        <a className="brand" href="#top" aria-label="Rudraksh Syal, home">
+        <Link className="brand" href="/" aria-label="Rudraksh Syal, home">
           <span className="brand-mark" aria-hidden="true">
             RS
           </span>
           <span>Rudraksh Syal</span>
-        </a>
-        <span className="header-note">Portfolio · 2015—Now</span>
+        </Link>
+        <span className="header-note">Open to roles · San Jose / remote</span>
         <nav className="primary-nav" aria-label="Portfolio sections">
           <Link href="/work">Work</Link>
           <Link href="/journey">Journey</Link>
-          <Link href="/now">Now &amp; Lab</Link>
+          <Link href="/now">Building now</Link>
           <Link href="/about">About</Link>
+          <Link href="/resume">Resume</Link>
         </nav>
-        <button
-          className="studio-lock"
-          type="button"
-          disabled
-          aria-label="Career Studio, private workspace planned for a later release"
-        >
-          <span aria-hidden="true">▢</span> Career Studio
-        </button>
       </header>
 
       <section className="hero" id="top" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="role-line">Data scientist · ML engineer · Product-minded technical leader</p>
-          <h1 id="hero-title">
-            Building practical data, ML, and AI systems for{" "}
-            <em>complex decisions.</em>
-          </h1>
+          <p className="availability-line">{siteConfig.availability}</p>
+          <h1 id="hero-title">Rudraksh Syal</h1>
+          <p className="hero-title-line">Data Science Lead</p>
           <p className="hero-summary">
-            I’m a hands-on technical leader with 10+ years across data science,
-            machine learning, product measurement, experimentation, pricing,
-            and applied AI—turning ambiguous problems into systems and evidence
-            people can understand, trust, and use.
+            Technical lead for agentic AI and LLM systems, with 11+ years in
+            Python, machine learning, and data science. I ship pricing,
+            retrieval, and measurement systems that a person can check.
           </p>
-          <div className="hero-actions" aria-label="Explore the portfolio">
-            <a className="text-action" href="#work">
-              Explore selected work <span aria-hidden="true">↘</span>
+          <ul className="role-chips" aria-label="Target roles">
+            {targetRoles.map((role) => (
+              <li key={role}>{role}</li>
+            ))}
+          </ul>
+          <dl className="hero-metrics">
+            {proof.map((item) => (
+              <div key={item.value}>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <div className="hero-actions" aria-label="Contact and résumé">
+            <a className="download-resume" href="/resume.pdf">
+              Download resume
             </a>
-            <Link className="quiet-action" href="/journey">
-              View my journey
-            </Link>
-          </div>
-          <div className="hero-credential-line" aria-label="Career highlights">
-            <span>10+ years</span>
-            <span>Measurement → models → products</span>
-            <span>Production ML &amp; AI</span>
+            <a className="quiet-action" href={`mailto:${siteConfig.email}`}>
+              Email
+            </a>
+            <a className="quiet-action" href={siteConfig.sameAs[0]} target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+            <a className="quiet-action" href={siteConfig.sameAs[1]} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
           </div>
         </div>
 
@@ -202,7 +270,8 @@ export default function Home() {
             </dl>
           </div>
           <p className="data-note">
-            Aggregated, representative operational data from one fleet.
+            Aggregated, representative operational data from one fleet. One
+            43-aircraft fleet saw 28% fewer off-fleet bookings in month one.
           </p>
         </article>
       </section>
@@ -210,8 +279,8 @@ export default function Home() {
       <section className="section-block selected-work" id="work" aria-labelledby="work-title">
         <header className="section-heading">
           <p className="section-kicker">Selected work</p>
-          <h2 id="work-title">Three other ways the work became useful.</h2>
-          <p>Focused evidence, with the full technical stories reserved for deeper case studies.</p>
+          <h2 id="work-title">Systems a hiring manager can inspect.</h2>
+          <p>The live agentic layer, the contract corpus, and the policy badges. The full library holds pricing and measurement as well.</p>
         </header>
         <div className="work-list">
           {selectedWork.map((project) => (
@@ -220,22 +289,59 @@ export default function Home() {
               <h3>{project.title}</h3>
               <p>{project.copy}</p>
               <div className={`home-project-viz ${project.visual}`} aria-hidden="true">
-                {project.visual === "documents" && <><i /><i /><i /><span>Structured</span></>}
-                {project.visual === "margin" && <><span>−8%</span><i /><i /><span>+17%</span></>}
-                {project.visual === "causal" && <><i><b>10%</b></i><i><b>4%</b></i><span>Observed → incremental</span></>}
+                {project.visual === "documents" && (
+                  <>
+                    <i />
+                    <i />
+                    <i />
+                    <span>Structured</span>
+                  </>
+                )}
+                {project.visual === "agent" && (
+                  <>
+                    <span>Tools</span>
+                    <i />
+                    <span>Explain</span>
+                    <i />
+                    <span>Approve</span>
+                  </>
+                )}
               </div>
               <strong>{project.proof}</strong>
-              <Link className="home-project-link" href={project.href}>View project →</Link>
+              <Link className="home-project-link" href={project.href}>
+                View project →
+              </Link>
             </article>
           ))}
         </div>
-        <Link className="coming-note" href="/work">Explore the complete work library →</Link>
+        <Link className="coming-note" href="/work">
+          EU Light Jet, product measurement, and the full library →
+        </Link>
+      </section>
+
+      <section className="section-block skills-section" id="skills" aria-labelledby="skills-title">
+        <header className="section-heading compact-heading">
+          <p className="section-kicker">Skills</p>
+          <h2 id="skills-title">The stack behind the systems.</h2>
+        </header>
+        <div className="skills-grid">
+          {skillGroups.map((group) => (
+            <article key={group.title}>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="section-block journey-section" id="journey" aria-labelledby="journey-title">
         <header className="section-heading compact-heading">
           <p className="section-kicker">Journey</p>
-          <h2 id="journey-title">A decade of expanding the decision surface.</h2>
+          <h2 id="journey-title">Recent first. Still hands-on.</h2>
         </header>
         <ol className="journey-line">
           {journey.map(([year, place, theme], index) => (
@@ -247,61 +353,67 @@ export default function Home() {
             </li>
           ))}
         </ol>
-        <Link className="section-route-link" href="/journey">Read the full journey →</Link>
+        <Link className="section-route-link" href="/journey">
+          Read the full journey →
+        </Link>
       </section>
 
       <section className="section-block now-section" id="now" aria-labelledby="now-title">
         <div>
-          <p className="section-kicker">Now &amp; Lab</p>
-          <h2 id="now-title">Learning in public, without pretending the work is finished.</h2>
+          <p className="section-kicker">Building now</p>
+          <h2 id="now-title">Public 2026 repositories, dated and linked.</h2>
           <p>
-            Exploring reliable Agentic AI systems, deep learning, evaluation,
-            and the transition from promising experiments to dependable applications.
+            Current employment is Data Science Lead at Hana E Solutions. Alongside
+            that, these public repositories are where agent orchestration,
+            evaluation, and interfaces are being built in the open.
           </p>
-          <div className="topic-line" aria-label="Current areas of interest">
-            <span>Agentic AI</span>
-            <span>Evaluation</span>
-            <span>Deep learning</span>
+          <div className="build-preview">
+            {featuredBuilds.map((build) => (
+              <a key={build.repo} href={build.href} target="_blank" rel="noreferrer">
+                <time dateTime={build.updated}>{build.updated}</time>
+                <strong>{build.title}</strong>
+                <span>{build.repo}</span>
+              </a>
+            ))}
           </div>
-          <Link className="section-route-link align-left" href="/now">Open Now &amp; Lab →</Link>
+          <Link className="section-route-link align-left" href="/now">
+            Open Building now →
+          </Link>
         </div>
         <div className="multiplier-note">
           <p className="section-kicker">Technical multiplier</p>
           <blockquote>
-            Remaining hands-on while helping other practitioners reason,
-            review, and grow.
+            Led two data scientists at Vista from May 2024 through July 2026,
+            and kept reviewing the work directly.
           </blockquote>
           <p>
-            Mentored junior data-science talent for 2+ years and founded
-            Knowledge Café—eight learning sessions reaching 60+ colleagues
-            across product, engineering, and operations.
+            Founded Knowledge Café — eight learning sessions reaching 60+
+            colleagues across product, engineering, and operations.
           </p>
         </div>
       </section>
 
-      <footer className="site-footer" id="about">
+      <footer className="site-footer" id="contact">
         <div>
-          <p className="section-kicker">About the work</p>
-          <h2>
-            Interested in difficult problems at the intersection of data,
-            ML, AI, product measurement, decisions, and real-world execution.
-          </h2>
+          <p className="section-kicker">Contact</p>
+          <div>
+            <h2>Open to roles. Available now.</h2>
+            <p className="availability-line footer-availability">{siteConfig.availability}</p>
+          </div>
         </div>
         <nav aria-label="Contact and profiles">
-          <a href="mailto:rudrakshsyal@gmail.com">Email</a>
-          <a href="https://github.com/rudrakshsyal/" target="_blank" rel="noreferrer">
+          <a href="/resume.pdf">Download resume</a>
+          <a href={`mailto:${siteConfig.email}`}>Email</a>
+          <a href={siteConfig.sameAs[1]} target="_blank" rel="noreferrer">
             GitHub
           </a>
-          <a
-            href="https://www.linkedin.com/in/rudraksh-syal/"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={siteConfig.sameAs[0]} target="_blank" rel="noreferrer">
             LinkedIn
           </a>
-          <a href="#top">Back to top ↑</a>
         </nav>
-        <p className="footer-note">Public portfolio foundation · Career Studio remains private.</p>
+        <p className="footer-note">
+          Data Science Lead, Hana E Solutions · San Jose, CA / remote
+        </p>
       </footer>
     </main>
   );
