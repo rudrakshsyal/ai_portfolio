@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../../components/CaseFooter";
 import { pageMetadata } from "../../../lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -319,10 +320,7 @@ export default function ContractIntelligencePage() {
         </div>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/work">← All work</Link>
-        <Link href="/work/cancellation-policy-badging">Next: Cancellation Policy Badging →</Link>
-      </footer>
+      <CaseFooter backHref="/work" backLabel="← All work" nextHref="/work/cancellation-policy-badging" nextLabel="Cancellation badges →" />
     </main>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../components/CaseFooter";
 import { pageMetadata } from "../../lib/metadata";
 import { siteConfig, targetRoles } from "../../lib/site";
 
@@ -130,13 +131,7 @@ export default function FuturePage() {
         </div>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/now">← Building now</Link>
-        <a href={`mailto:${siteConfig.email}`}>Email</a>
-        <a href={siteConfig.sameAs[0]} target="_blank" rel="noreferrer">
-          LinkedIn
-        </a>
-      </footer>
+      <CaseFooter backHref="/now" backLabel="← Building now" />
     </main>
   );
 }

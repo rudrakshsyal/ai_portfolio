@@ -264,7 +264,8 @@ test("server-renders the visual About page", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /Hands-on lead\. Still shipping/);
+  assert.match(html, /Ask me about pricing, measurement, or agentic systems/);
+  assert.match(html, /linkedin\.com\/in\/rudraksh-syal/);
   assert.match(html, /Hands-on technical leader/);
   assert.match(html, /Forward Deployed Engineer/);
   assert.match(html, /11\+/);

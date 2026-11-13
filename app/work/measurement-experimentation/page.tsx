@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../../components/CaseFooter";
 import { pageMetadata } from "../../../lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -173,10 +174,7 @@ export default function MeasurementExperimentationPage() {
         </div>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/work">← All work</Link>
-        <a href="mailto:rudrakshsyal@gmail.com">Discuss the work</a>
-      </footer>
+      <CaseFooter backHref="/work" backLabel="← All work" />
     </main>
   );
 }

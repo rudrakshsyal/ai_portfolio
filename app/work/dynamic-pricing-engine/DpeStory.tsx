@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { CaseFooter } from "../../components/CaseFooter";
 
 type LabKey = "supply" | "demand" | "solver";
 type SolverKey = "base" | "peak" | "floor";
@@ -781,10 +782,7 @@ export default function DpeStory() {
         </p>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/">← Back to portfolio</Link>
-        <a href="mailto:rudrakshsyal@gmail.com">Discuss the work</a>
-      </footer>
+      <CaseFooter backHref="/" backLabel="← Portfolio" />
     </main>
   );
 }

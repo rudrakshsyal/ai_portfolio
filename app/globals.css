@@ -3072,10 +3072,27 @@ a:focus-visible {
   min-height: 150px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 12px 24px;
   font-size: 14px;
   font-weight: 600;
+}
+
+.case-footer-nav,
+.case-footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 22px;
+}
+
+.ask-line {
+  flex: 1 1 220px;
+  margin: 0;
+  color: var(--case-muted, #6e6e73);
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .case-footer a:last-child {
@@ -6230,8 +6247,9 @@ a:focus-visible {
   font-weight: 400;
 }
 
-.footer-availability {
-  margin-top: 18px;
+.home-ask {
+  margin-top: 12px;
+  color: var(--muted);
 }
 
 .build-list,

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../components/CaseFooter";
 import { pageMetadata } from "../../lib/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -220,10 +221,7 @@ export default function JourneyPage() {
         </div>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/">← Back to portfolio</Link>
-        <Link href="/now">What I’m building now →</Link>
-      </footer>
+      <CaseFooter backHref="/" backLabel="← Portfolio" nextHref="/now" nextLabel="Building now →" />
     </main>
   );
 }

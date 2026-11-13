@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../components/CaseFooter";
 import { pageMetadata } from "../../lib/metadata";
 import { siteConfig } from "../../lib/site";
 
@@ -78,10 +79,7 @@ export default function ResumePage() {
         ))}
       </section>
 
-      <footer className="case-footer">
-        <Link href="/">← Back to portfolio</Link>
-        <a href={`mailto:${siteConfig.email}`}>Email</a>
-      </footer>
+      <CaseFooter backHref="/" backLabel="← Portfolio" />
     </main>
   );
 }

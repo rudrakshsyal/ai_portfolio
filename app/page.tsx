@@ -398,6 +398,7 @@ export default function Home() {
           <div>
             <h2>Open to roles. Available now.</h2>
             <p className="availability-line footer-availability">{siteConfig.availability}</p>
+            <p className="ask-line home-ask">Ask me about pricing, measurement, or agentic systems.</p>
           </div>
         </div>
         <nav aria-label="Contact and profiles">

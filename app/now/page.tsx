@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseFooter } from "../components/CaseFooter";
 import { featuredBuilds, formatUpdated, otherBuilds } from "../../lib/building-now";
 import { pageMetadata } from "../../lib/metadata";
-import { siteConfig } from "../../lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Building now · Rudraksh Syal",
@@ -82,10 +82,7 @@ export default function NowPage() {
         </div>
       </section>
 
-      <footer className="case-footer">
-        <Link href="/future">Where I’m headed →</Link>
-        <a href={`mailto:${siteConfig.email}`}>Email</a>
-      </footer>
+      <CaseFooter backHref="/future" backLabel="Where I’m headed →" />
     </main>
   );
 }
